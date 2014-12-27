@@ -1,15 +1,14 @@
 <?php
 
-abstract class Controller
-{
+abstract class Controller{
 
     protected $data = array();
     protected $view = "";
     protected $head =
         array(
-            "title" => "",
-            "description" => "",
-            "key_words" => ""
+            'title' => '',
+            'description' => '',
+            'keywords' => ''
         );
 
     abstract function process($parameters);
@@ -23,7 +22,7 @@ abstract class Controller
 
     public function redirect($url){
         header("Location: /$url");
-        header("Connection: Close");
+        header("Connection: close");
         exit;
     }
 
