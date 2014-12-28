@@ -48,4 +48,24 @@ abstract class Controller
         else
             return $x;
     }
+
+    public function addNotice($text)
+    {
+        if(isset($_SESSION['notices']))
+            $_SESSION['notices'][] = $text;
+        else
+            $_SESSION['notices'] = array($text);
+    }
+
+    public function getNotices()
+    {
+        if(isset($_SESSION['notices']))
+        {
+            $notices = $_SESSION['notices'];
+            unset($_SESSION['notices']);
+            return $notices;
+        }
+        else
+            return array();
+    }
 }

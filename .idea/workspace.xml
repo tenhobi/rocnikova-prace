@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3899518e-da32-44e3-b41e-227fb5c2519b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ArticleController.php" afterPath="$PROJECT_DIR$/app/controllers/ArticleController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/ArticleManager.php" afterPath="$PROJECT_DIR$/app/models/ArticleManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ContactController.php" afterPath="$PROJECT_DIR$/app/controllers/ContactController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Controller.php" afterPath="$PROJECT_DIR$/app/controllers/Controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Db.php" afterPath="$PROJECT_DIR$/app/models/Db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ErrorController.php" afterPath="$PROJECT_DIR$/app/controllers/ErrorController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/MailSender.php" afterPath="$PROJECT_DIR$/app/models/MailSender.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/RouterController.php" afterPath="$PROJECT_DIR$/app/controllers/RouterController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/article.phtml" afterPath="$PROJECT_DIR$/app/views/article.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/contact.phtml" afterPath="$PROJECT_DIR$/app/views/contact.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.php" afterPath="$PROJECT_DIR$/app/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layout.phtml" afterPath="$PROJECT_DIR$/app/views/layout.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/style.css" afterPath="$PROJECT_DIR$/app/css/style.css" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,11 +56,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Controller.php">
+      <file leaf-file-name="ContactController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82158923" vertical-offset="285" max-vertical-offset="952">
-              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+            <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="629">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/contact.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.20389806" vertical-offset="0" max-vertical-offset="667">
+              <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -81,19 +92,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/contact.phtml" />
-        <option value="$PROJECT_DIR$/app/models/ArticleManager.php" />
-        <option value="$PROJECT_DIR$/app/models/MailSender.php" />
         <option value="$PROJECT_DIR$/app/views/articles.phtml" />
-        <option value="$PROJECT_DIR$/app/views/layout.phtml" />
-        <option value="$PROJECT_DIR$/app/models/Db.php" />
-        <option value="$PROJECT_DIR$/app/index.php" />
         <option value="$PROJECT_DIR$/app/views/article.phtml" />
-        <option value="$PROJECT_DIR$/app/controllers/RouterController.php" />
         <option value="$PROJECT_DIR$/app/controllers/ErrorController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ContactController.php" />
         <option value="$PROJECT_DIR$/app/controllers/ArticleController.php" />
+        <option value="$PROJECT_DIR$/app/index.php" />
         <option value="$PROJECT_DIR$/app/controllers/Controller.php" />
+        <option value="$PROJECT_DIR$/app/controllers/RouterController.php" />
+        <option value="$PROJECT_DIR$/app/css/style.css" />
+        <option value="$PROJECT_DIR$/app/models/UserError.php" />
+        <option value="$PROJECT_DIR$/app/models/ArticleManager.php" />
+        <option value="$PROJECT_DIR$/app/models/Db.php" />
+        <option value="$PROJECT_DIR$/app/models/MailSender.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ContactController.php" />
+        <option value="$PROJECT_DIR$/app/views/layout.phtml" />
+        <option value="$PROJECT_DIR$/app/views/contact.phtml" />
       </list>
     </option>
   </component>
@@ -370,14 +383,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/ArticleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="629">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layout.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="680">
@@ -390,6 +395,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="884">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -436,6 +442,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="884">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -572,13 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6840537" vertical-offset="281" max-vertical-offset="1513">
-          <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/PDO.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.28928572" vertical-offset="11518" max-vertical-offset="23154">
@@ -678,13 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/MailSender.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07646177" vertical-offset="0" max-vertical-offset="667">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/fb9b34ce/954fb8b2-3ca9-42c8-a61c-5f4f0de4c360/blog..articles">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -697,13 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ArticleManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20389806" vertical-offset="0" max-vertical-offset="667">
-          <caret line="8" column="83" selection-start-line="8" selection-start-column="83" selection-end-line="8" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/error.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.025487257" vertical-offset="0" max-vertical-offset="667">
@@ -711,32 +697,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/contact.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10194903" vertical-offset="0" max-vertical-offset="667">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="901">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_0.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0344827" vertical-offset="5328" max-vertical-offset="23800">
           <caret line="354" column="52" selection-start-line="354" selection-start-column="52" selection-end-line="354" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layout.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25487256" vertical-offset="0" max-vertical-offset="680">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -773,22 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3568216" vertical-offset="0" max-vertical-offset="667">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="510">
-          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ArticleController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.307693" vertical-offset="64" max-vertical-offset="799">
@@ -805,18 +753,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/RouterController.php">
+    <entry file="file://$PROJECT_DIR$/app/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1784108" vertical-offset="0" max-vertical-offset="901">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.025487257" vertical-offset="0" max-vertical-offset="667">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82158923" vertical-offset="285" max-vertical-offset="952">
-          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.6311844" vertical-offset="599" max-vertical-offset="1292">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ArticleManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15292354" vertical-offset="0" max-vertical-offset="667">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding>
+            <marker date="1419797023164" expanded="true" signature="-1:-1" placeholder="SELECT `arti..articles..." />
+            <marker date="1419797023164" expanded="true" signature="-1:-1" placeholder="SELECT `arti..articles..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07646177" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/UserError.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10194903" vertical-offset="0" max-vertical-offset="667">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41125542" vertical-offset="837" max-vertical-offset="1598">
+          <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/RouterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1784108" vertical-offset="0" max-vertical-offset="918">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/MailSender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="442">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layout.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43328336" vertical-offset="0" max-vertical-offset="748">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="629">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/contact.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20389806" vertical-offset="0" max-vertical-offset="667">
+          <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
           <folding />
         </state>
       </provider>

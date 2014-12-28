@@ -11,12 +11,18 @@ class ContactController extends Controller
             'keywords' => 'kontakt, email, formulář'
         );
 
-        if (isset($_POST['email']))
+        if ($_POST)
         {
-            if ($_POST['year'] == date("Y"))
+            try
             {
                 $mailSender = new MailSender();
-                $mailSender->send("no-reply@honzabittner.cz", "No Reply from Honza Bittner", $_POST['msg'], $_POST['email']);
+                $mailSender->sendWithAntispam($_POST['year'], "no-reply@honzabittner.cz", "No Reply from Honza Bittner", $_POST['msg'], $_POST['email']);
+                $this->addNotice('Email byl úspěšně odeslán');
+                $this->redirect('contact');
+            }
+            catch (UserError $error)
+            {
+                $this->addNotice($error->getMessage());
             }
         }
 
