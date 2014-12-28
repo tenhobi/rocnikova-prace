@@ -4,10 +4,11 @@ class ContactController extends Controller
 {
     public function process($parameters)
     {
-        $this->head = array(
+        $this->head = array
+        (
             'title' => 'Kontaktní formulář',
-            'keywords' => 'kontakt, email, formulář',
-            'description' => 'Kontaktní formulář našeho webu.'
+            'description' => 'Kontaktní formulář našeho webu.',
+            'keywords' => 'kontakt, email, formulář'
         );
 
         if (isset($_POST['email']))

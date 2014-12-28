@@ -1,14 +1,16 @@
 <?php
 
-class RouterController extends Controller{
+class RouterController extends Controller
+{
 
     protected $controller;
 
-    function process($parameters){
+    function process($parameters)
+    {
         $parsedURL = $this->parseURL($parameters[0]);
 
         if (empty($parsedURL[0]))
-            $this->redirect('timeline');
+            $this->redirect('article/uvod');
 
         $controllerClass = $this->dashesToCamelCase(array_shift($parsedURL).'Controller');
 
@@ -26,7 +28,8 @@ class RouterController extends Controller{
         $this->view = 'layout';
     }
 
-    private function parseURL($url){
+    private function parseURL($url)
+    {
         $parsedURL = parse_url($url)['path'];
         $parsedURL = ltrim($parsedURL, '/');
         $parsedURL = trim($parsedURL);
@@ -35,7 +38,8 @@ class RouterController extends Controller{
         return $partedPath;
     }
 
-    private function dashesToCamelCase($str){
+    private function dashesToCamelCase($str)
+    {
         $str = str_replace('-', ' ', $str);
         $str = ucwords($str);
         $str = str_replace(' ', '', $str);

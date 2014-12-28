@@ -9,8 +9,9 @@ function autoLoad($class){
         require("models/" . $class . ".php");
 }
 
+
 Db::login("127.0.0.1", "root", "", "blog");
-//Db::login("blog.honzabittner.cz", "HB_rocnikovka", "rocnikovy-projekt", "HB_rocnikovka");
+//Db::login("","HB_rocnikovka", "rocnikovy-projekt", "HB_rocnikovka");
 
 $router = new RouterController();
 $router->process(array($_SERVER['REQUEST_URI']));
