@@ -68,4 +68,24 @@ abstract class Controller
         else
             return array();
     }
+
+    /*
+    public function checkUser($role = 0){
+        // role 0: user
+        // role 1: moderator
+        // role 2: admin
+        $userManager = new UserManager();
+        $user = $userManager->getUser();
+
+    }*/
+
+    public function checkUser($admin = false)
+    {
+        $userManager = new UserManager();
+        $user = $userManager->getUser();
+        if(!$user || ($admin && !$user['admin'])){
+            $this->addNotice('Nedostatečná oprávnění.');
+            $this->redirect('login');
+        }
+    }
 }

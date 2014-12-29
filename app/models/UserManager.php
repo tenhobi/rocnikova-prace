@@ -31,10 +31,10 @@ class UserManager
         }
     }
 
-    public function login($name, $password)
+    public function logIn($name, $password)
     {
         $user = Db::queryOne('
-            SELECT `users_id`, `first_name`, `role`
+            SELECT `users_id`, `first_name`, `role` as `admin`
             FROM `users`
             WHERE `first_name` = ? AND `password` = ?
         ', array($name, $this->getImprint($password)));
@@ -44,7 +44,7 @@ class UserManager
         $_SESSION['user'] = $user;
     }
 
-    public function logout()
+    public function logOut()
     {
         unset($_SESSION['user']);
     }

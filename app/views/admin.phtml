@@ -1,0 +1,7 @@
+<p>Vítejte v administraci, jste přihlášeni jako <?= $first_name ?></p>
+<?php if (!$admin) : ?>
+    <p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
+<?php endif ?>
+<h2><a href="editor">Editor článků</a></h2>
+<h2><a href="article">Seznam článků</a></h2>
+<h2><a href="admin/logout">Odhlásit</a></h2>

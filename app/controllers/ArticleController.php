@@ -5,8 +5,17 @@ class ArticleController extends Controller{
     public function process($parameters)
     {
         $articleManager = new ArticleManager();
+        $userManager = new UserManager();
+        $user = $userManager->getUser();
+        $this->data['admin'] = $user && $user['admin'];
 
-        if(!empty($parameters[0]))
+        if(!empty($parameters[1]) && $parameters[1] == 'delete')
+        {
+            $this->checkUser(true);
+            $articleManager->deleteArticle($parameters[0]);
+            $this->redirect('clanek');
+        }
+        else if(!empty($parameters[0]) )
         {
             $article = $articleManager->getArticle($parameters[0]);
 

@@ -4,6 +4,7 @@ class EditorController extends Controller
 {
     public function process($parameters)
     {
+        $this->checkUser(true);
         $this->head['title'] = 'Editor článků';
 
         $articleManager = new ArticleManager();
