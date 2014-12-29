@@ -1,0 +1,31 @@
+<h1>Editor článků</h1>
+
+<form method="post">
+    <input type="hidden" name="articles_id" value="<?= $article['articles_id'] ?>" />
+    Titulek<br />
+    <input type="text" name="title" value="<?= $article['title'] ?>" /><br />
+    URL<br />
+    <input type="text" name="url" value="<?= $article['url'] ?>" /><br />
+    Popisek<br />
+    <input type="text" name="description" value="<?= $article['description'] ?>" /><br />
+    Klíčová slova<br />
+    <input type="text" name="keywords" value="<?= $article['keywords'] ?>" /><br />
+    <textarea name="content"><?= $article['content'] ?></textarea>
+    <input type="submit" value="Uložit článek" />
+</form>
+
+<script type="text/javascript" src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea[name=content]",
+        plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        entities: "160,nbsp",
+        entity_encoding: "named",
+        entity_encoding: "raw"
+    });
+</script>
