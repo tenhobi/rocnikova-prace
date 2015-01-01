@@ -26,6 +26,7 @@ abstract class Controller
 
     public function redirect($url)
     {
+        $url = trim($url);
         header("Location: /$url");
         header("Connection: close");
         exit;
@@ -85,7 +86,7 @@ abstract class Controller
         $user = $userManager->getUser();
         if(!$user || ($admin && !$user['admin'])){
             $this->addNotice('Nedostatečná oprávnění.');
-            $this->redirect('login');
+            $this->redirect(Url::getAlias('login'));
         }
     }
 }

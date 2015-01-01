@@ -12,7 +12,7 @@ class Db
         PDO::ATTR_EMULATE_PREPARES => false
     );
 
-    public static function login($host, $user, $password, $database)
+    public static function logIn($host, $user, $password, $database)
     {
         if (!isset(self::$connection))
         {

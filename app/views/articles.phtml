@@ -3,12 +3,12 @@
     <?php foreach ($articles as $article) : ?>
         <tr>
             <td>
-                <h2><a href="article/<?= $article['url'] ?>"><?= $article['title'] ?></a></h2>
+                <h2><a href="<?=Url::getAlias('article')?>/<?= $article['url'] ?>"><?= $article['title'] ?></a></h2>
                 <?= $article['description'] ?>
                 <?php if ($admin): ?>
                     <br />
-                    <a href="editor/<?= $article['url'] ?>">Editovat</a>
-                    <a href="article/<?= $article['url'] ?>/delete">Odstranit</a>
+                    <a href="<?=Url::getAlias('editor')?>/<?= $article['url'] ?>">Editovat</a>
+                    <a href="<?=Url::getAlias('article')?>/<?= $article['url'] ?>/<?=Url::getCommand('delete')?>">Odstranit</a>
                 <?php endif ?>
             </td>
         </tr>

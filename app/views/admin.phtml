@@ -2,6 +2,6 @@
 <?php if (!$admin) : ?>
     <p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
 <?php endif ?>
-<h2><a href="editor">Editor článků</a></h2>
-<h2><a href="article">Seznam článků</a></h2>
-<h2><a href="admin/logout">Odhlásit</a></h2>
+<h2><a href="<?=Url::getAlias('editor')?>">Editor článků</a></h2>
+<h2><a href="<?=Url::getAlias('article')?>">Seznam článků</a></h2>
+<h2><a href="<?=Url::getAlias('admin')?>/<?=Url::getCommand('logout')?>">Odhlásit</a></h2>

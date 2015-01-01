@@ -13,7 +13,7 @@ class RegisterController extends Controller
                 $userManager->register($_POST['first_name'], $_POST['password'], $_POST['password_test'], $_POST['year']);
                 $userManager->logIn($_POST['first_name'], $_POST['password']);
                 $this->addNotice('Byl jste úspěšně zaregistrován.');
-                $this->redirect('admin');
+                $this->redirect(Url::getAlias('admin'));
             }
             catch (UserError $error)
             {

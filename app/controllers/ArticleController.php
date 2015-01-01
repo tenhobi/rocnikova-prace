@@ -4,23 +4,27 @@ class ArticleController extends Controller{
 
     public function process($parameters)
     {
+        // $parameters[0] - controller
+        // $parameters[1] - article
+        // $parameters[2] - command
+
         $articleManager = new ArticleManager();
         $userManager = new UserManager();
         $user = $userManager->getUser();
         $this->data['admin'] = $user && $user['admin'];
 
-        if(!empty($parameters[1]) && $parameters[1] == 'delete')
+        if(!empty($parameters[1]) && !empty($parameters[2]) && ($parameters[2] == Url::getCommand('delete')))
         {
             $this->checkUser(true);
-            $articleManager->deleteArticle($parameters[0]);
-            $this->redirect('clanek');
+            $articleManager->deleteArticle($parameters[1]);
+            $this->redirect(Url::getAlias('article'));
         }
-        else if(!empty($parameters[0]) )
+        else if(!empty($parameters[1]) )
         {
-            $article = $articleManager->getArticle($parameters[0]);
+            $article = $articleManager->getArticle($parameters[1]);
 
             if(!$article)
-                $this->redirect('error');
+                $this->redirect(Url::getAlias('error'));
 
             $this->head = array(
                 'title' => $article['title'],

@@ -11,8 +11,10 @@ function autoLoad($class){
 }
 
 
-Db::login("127.0.0.1", "root", "", "blog");
+Db::logIn("127.0.0.1", "root", "", "blog");
 //Db::login("","HB_rocnikovka", "rocnikovy-projekt", "HB_rocnikovka");
+
+Url::init();
 
 $router = new RouterController();
 $router->process(array($_SERVER['REQUEST_URI']));

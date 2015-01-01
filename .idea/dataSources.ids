@@ -17,6 +17,19 @@
       <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="articles_id"/>
     </table>
+    <table name="url" schema="" catalog="blog" type="TABLE">
+      <column name="controller" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="alias" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="admin" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="controller"/>
+      <index name="alias" unique="true" columns="alias"/>
+    </table>
+    <table name="url_commands" schema="" catalog="blog" type="TABLE">
+      <column name="command" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="alias" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="command"/>
+      <index name="alias" unique="true" columns="alias"/>
+    </table>
     <table name="users" schema="" catalog="blog" type="TABLE">
       <column name="users_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="first_name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>

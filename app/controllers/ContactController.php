@@ -18,7 +18,7 @@ class ContactController extends Controller
                 $mailSender = new MailSender();
                 $mailSender->sendWithAntispam($_POST['year'], "no-reply@honzabittner.cz", "No Reply from Honza Bittner", $_POST['msg'], $_POST['email']);
                 $this->addNotice('Email byl úspěšně odeslán');
-                $this->redirect('contact');
+                $this->redirect(Url::getAlias('contact'));
             }
             catch (UserError $error)
             {

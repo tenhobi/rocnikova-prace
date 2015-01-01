@@ -41,6 +41,7 @@ class UserManager
 
         if (!$user)
             throw new UserError('Neplatné jméno nebo heslo.');
+
         $_SESSION['user'] = $user;
     }
 
