@@ -51,14 +51,4 @@ class RouterController extends Controller
         $partedPath = explode('/', $parsedURL);
         return $partedPath;
     }
-
-    private function dashesToCamelCase($str)
-    {
-        $str = str_replace('-', ' ', $str);
-        $str = ucwords($str);
-        $str = str_replace(' ', '', $str);
-        return $str;
-    }
-
-
 }

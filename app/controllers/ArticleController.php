@@ -1,7 +1,14 @@
 <?php
 
-class ArticleController extends Controller{
+/**
+ * Class ArticleController
+ */
+class ArticleController extends Controller
+{
 
+    /**
+     * @param $parameters url parts for process
+     */
     public function process($parameters)
     {
         // $parameters[0] - controller
@@ -13,17 +20,17 @@ class ArticleController extends Controller{
         $user = $userManager->getUser();
         $this->data['admin'] = $user && $user['admin'];
 
-        if(!empty($parameters[1]) && !empty($parameters[2]) && ($parameters[2] == Url::getCommand('delete')))
+        if (!empty($parameters[1]) && !empty($parameters[2]) && ($parameters[2] == Url::getCommand('delete')))
         {
             $this->checkUser(true);
             $articleManager->deleteArticle($parameters[1]);
             $this->redirect(Url::getAlias('article'));
         }
-        else if(!empty($parameters[1]) )
+        else if (!empty($parameters[1]))
         {
             $article = $articleManager->getArticle($parameters[1]);
 
-            if(!$article)
+            if (!$article)
                 $this->redirect(Url::getAlias('error'));
 
             $this->head = array(
@@ -51,5 +58,4 @@ class ArticleController extends Controller{
         }
 
     }
-
 }

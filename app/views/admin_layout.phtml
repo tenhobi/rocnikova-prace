@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="cs-cz">
 <head>
-    <base href="/blog" />
-    <meta charset="UTF-8" />
+    <base href="/blog"/>
+    <meta charset="UTF-8"/>
     <title><?= $title ?> | Můj Blog</title>
-    <meta name="description" content="<?= $description ?>" />
-    <meta name="keywords" content="<?= $keywords ?>" />
+    <meta name="description" content="<?= $description ?>"/>
+    <meta name="keywords" content="<?= $keywords ?>"/>
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
 </head>
 
 <body>
 <header>
-    <h1>DevbookMVC - ukázkový web</h1>
+    <h1>Admin</h1>
 </header>
 
 <?php foreach ($notices as $notice) : ?>
     <p class="notice"><?= $notice ?></p>
 <?php endforeach ?>
 
-<nav>
-    <ul>
-        <li><a href="article/uvod">Úvod</a></li>
-        <li><a href="article">Články</a></li>
-        <li><a href="contact">Kontakt</a></li>
-    </ul>
-</nav>
-<br clear="both" />
-
-<article>
     <?php $this->controller->printView(); ?>
-</article>
 
 <footer>
     <p>Ukázkový tutoriál pro jednoduché MVC z programátorské sociální sítě

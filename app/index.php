@@ -3,7 +3,8 @@ session_start();
 mb_internal_encoding("UTF-8");
 spl_autoload_register("autoLoad");
 
-function autoLoad($class){
+function autoLoad($class)
+{
     if (preg_match("/Controller$/", $class))
         require("controllers/" . $class . ".php");
     else

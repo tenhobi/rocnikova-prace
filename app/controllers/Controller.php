@@ -17,7 +17,8 @@ abstract class Controller
 
     public function printView()
     {
-        if($this->view){
+        if ($this->view)
+        {
             extract($this->protect($this->data));
             extract($this->data, EXTR_PREFIX_ALL, "");
             require("views/" . $this->view . ".phtml");
@@ -40,19 +41,18 @@ abstract class Controller
             return htmlspecialchars($x, ENT_QUOTES);
         elseif (is_array($x))
         {
-            foreach($x as $k => $v)
+            foreach ($x as $k => $v)
             {
                 $x[$k] = $this->protect($v);
             }
             return $x;
-        }
-        else
+        } else
             return $x;
     }
 
     public function addNotice($text)
     {
-        if(isset($_SESSION['notices']))
+        if (isset($_SESSION['notices']))
             $_SESSION['notices'][] = $text;
         else
             $_SESSION['notices'] = array($text);
@@ -60,13 +60,12 @@ abstract class Controller
 
     public function getNotices()
     {
-        if(isset($_SESSION['notices']))
+        if (isset($_SESSION['notices']))
         {
             $notices = $_SESSION['notices'];
             unset($_SESSION['notices']);
             return $notices;
-        }
-        else
+        } else
             return array();
     }
 
@@ -84,9 +83,27 @@ abstract class Controller
     {
         $userManager = new UserManager();
         $user = $userManager->getUser();
-        if(!$user || ($admin && !$user['admin'])){
+        if (!$user || ($admin && !$user['admin']))
+        {
             $this->addNotice('Nedostatečná oprávnění.');
             $this->redirect(Url::getAlias('login'));
         }
+    }
+
+    public function dashesToCamelCase($str)
+    {
+        $str = str_replace('-', ' ', $str);
+        $str = ucwords($str);
+        $str = str_replace(' ', '', $str);
+        return $str;
+    }
+
+    public function belongToAdmin($url)
+    {
+        if ($url != Url::getAlias('admin'))
+        {
+            return false;
+        }
+        return true;
     }
 }

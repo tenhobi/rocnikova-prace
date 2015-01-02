@@ -6,6 +6,11 @@ class Url
     private static $commands = array();
     private static $admin = array();
 
+    public static function belongToAdmin($controller)
+    {
+        return in_array(Url::getAlias($controller), self::$admin);
+    }
+
     public static function getController($alias)
     {
         return array_flip(self::$urls)[$alias];
