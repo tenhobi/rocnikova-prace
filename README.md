@@ -1,4 +1,4 @@
-blog
-====
+Tell Us
+=======
 
-CMS for blog
+Place for every Czech and Slovak which wanna write and have not space.
