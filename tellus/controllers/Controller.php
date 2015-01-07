@@ -1,11 +1,23 @@
 <?php
 
+/**
+ * Class Controller Abstract controller which store all abstract and shared methods and variables.
+ */
 abstract class Controller
 {
+    /**
+     * @var array Data for print into web page.
+     */
     protected $data = array();
 
+    /**
+     * @var string Current view to print.
+     */
     protected $view = "";
 
+    /**
+     * @var array Data for head of HTML.
+     */
     protected $head = array
     (
         'title' => '',
@@ -13,18 +25,27 @@ abstract class Controller
         'keywords' => ''
     );
 
+    /**
+     * @param array $parameters Url parts for process with Controller.
+     */
     abstract function process($parameters);
 
+    /**
+     * Prints current view with extracted data.
+     */
     public function printView()
     {
         if ($this->view)
         {
             extract($this->protect($this->data));
             extract($this->data, EXTR_PREFIX_ALL, "");
-            require("views/" . $this->view . ".phtml");
+            require("views/$this->view.phtml");
         }
     }
 
+    /**
+     * @param string $url Url for redirect.
+     */
     public function redirect($url)
     {
         $url = trim($url);
@@ -33,6 +54,11 @@ abstract class Controller
         exit;
     }
 
+    /**
+     * @param array|string $x Variable for protect html special chars.
+     *
+     * @return array|null|string
+     */
     public function protect($x = null)
     {
         if (!isset($x))
@@ -46,10 +72,14 @@ abstract class Controller
                 $x[$k] = $this->protect($v);
             }
             return $x;
-        } else
+        }
+        else
             return $x;
     }
 
+    /**
+     * @param string $text Add text to notice list.
+     */
     public function addNotice($text)
     {
         if (isset($_SESSION['notices']))
@@ -58,6 +88,9 @@ abstract class Controller
             $_SESSION['notices'] = array($text);
     }
 
+    /**
+     * @return array Returns array with notices.
+     */
     public function getNotices()
     {
         if (isset($_SESSION['notices']))
@@ -65,7 +98,8 @@ abstract class Controller
             $notices = $_SESSION['notices'];
             unset($_SESSION['notices']);
             return $notices;
-        } else
+        }
+        else
             return array();
     }
 
@@ -79,6 +113,9 @@ abstract class Controller
 
     }*/
 
+    /**
+     * @param bool $admin Says if user must be admin or not.
+     */
     public function checkUser($admin = false)
     {
         $userManager = new UserManager();
@@ -86,24 +123,22 @@ abstract class Controller
         if (!$user || ($admin && !$user['admin']))
         {
             $this->addNotice('Nedostatečná oprávnění.');
-            $this->redirect(Url::getAlias('login'));
+            $this->redirect(Url::getAlias('admin') . '/' . Url::getAlias('login'));
         }
     }
 
+    /**
+     * Rewrites $str with dashes to CamelCase notation.
+     *
+     * @param string $str String for rewrite.
+     *
+     * @return string String in CamelCase notation.
+     */
     public function dashesToCamelCase($str)
     {
         $str = str_replace('-', ' ', $str);
         $str = ucwords($str);
         $str = str_replace(' ', '', $str);
         return $str;
-    }
-
-    public function belongToAdmin($url)
-    {
-        if ($url != Url::getAlias('admin'))
-        {
-            return false;
-        }
-        return true;
     }
 }

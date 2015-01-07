@@ -3,29 +3,30 @@
 <head>
     <base href="/blog"/>
     <meta charset="UTF-8"/>
-    <title><?= $title ?> | Můj Blog</title>
+    <title><?= $title ?> | tellus.cz</title>
     <meta name="description" content="<?= $description ?>"/>
-    <meta name="keywords" content="<?= $keywords ?>"/>
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
 <header>
-    <h1>DevbookMVC - ukázkový web</h1>
+    <h1>Blog</h1>
+    <nav>
+        <ul>
+            <li><a href="<?= Url::getAlias('summary') ?>">Přehled</a></li>
+            <li><a href="<?= Url::getAlias('article') ?>">Články</a></li>
+            <li><a href="<?= Url::getAlias('user') ?>">Uživatelé</a></li>
+            <li><a href="<?= Url::getAlias('admin') ?>">Administrace</a></li>
+        </ul>
+    </nav>
 </header>
 
 <?php foreach ($notices as $notice) : ?>
-    <p class="notice"><?= $notice ?></p>
+    <div class="notices">
+        <p class="notice"><?= $notice ?></p>
+    </div>
 <?php endforeach ?>
-
-<nav>
-    <ul>
-        <li><a href="clanek/uvod">Úvod</a></li>
-        <li><a href="clanek">Články</a></li>
-        <li><a href="kontakt">Kontakt</a></li>
-    </ul>
-</nav>
-<br clear="both"/>
 
 <article>
     <?php $this->controller->printView(); ?>

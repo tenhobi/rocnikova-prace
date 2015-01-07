@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - blog@localhost" uuid="954fb8b2-3ca9-42c8-a61c-5f4f0de4c360">
+  <data-source name="MySQL - tellus@localhost" uuid="e3acb4fe-c0c5-4b9a-b9a1-18550d15e6c6">
     <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
-    <schema name="" catalog="blog"/>
-    <table name="articles" schema="" catalog="blog" type="TABLE">
+    <schema name="" catalog="tellus"/>
+    <table name="articles" schema="" catalog="tellus" type="TABLE">
       <column name="articles_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="author_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="title" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
@@ -17,41 +17,43 @@
       <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="articles_id"/>
     </table>
-    <table name="url" schema="" catalog="blog" type="TABLE">
+    <table name="url" schema="" catalog="tellus" type="TABLE">
       <column name="controller" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
       <column name="alias" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
       <column name="admin" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
       <primary-key name="PRIMARY" columns="controller"/>
       <index name="alias" unique="true" columns="alias"/>
     </table>
-    <table name="url_commands" schema="" catalog="blog" type="TABLE">
+    <table name="url_commands" schema="" catalog="tellus" type="TABLE">
       <column name="command" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
       <column name="alias" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="command"/>
       <index name="alias" unique="true" columns="alias"/>
     </table>
-    <table name="users" schema="" catalog="blog" type="TABLE">
+    <table name="users" schema="" catalog="tellus" type="TABLE">
       <column name="users_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="first_name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
-      <column name="last_name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nickname" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
       <column name="password" sqlType="CHAR" precision="255" scale="0" nullable="false" jdbcType="1"/>
-      <column name="role" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="enabled" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="admin" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="url" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="users_id"/>
-    </table>
-    <table name="users_info" schema="" catalog="blog" type="TABLE">
-      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="avatar" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
       <column name="description" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
       <column name="motto" sqlType="VARCHAR" precision="140" scale="0" nullable="false" jdbcType="12"/>
       <column name="website" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
       <column name="facebook" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
       <column name="twitter" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
       <column name="googleplus" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
-      <column name="linkedin" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
-      <column name="registration" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <column name="last_login" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="users_id"/>
+      <index name="nickname" unique="true" columns="nickname"/>
+      <index name="url" unique="true" columns="url"/>
+    </table>
+    <table name="users_info" schema="" catalog="tellus" type="TABLE">
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="description" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="motto" sqlType="VARCHAR" precision="140" scale="0" nullable="false" jdbcType="12"/>
+      <column name="website" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="facebook" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="twitter" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="googleplus" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="user_id"/>
     </table>
   </data-source>

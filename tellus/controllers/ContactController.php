@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class ContactController Takes care about contact page.
+ */
 class ContactController extends Controller
 {
     public function process($parameters)
@@ -7,8 +10,7 @@ class ContactController extends Controller
         $this->head = array
         (
             'title' => 'Kontaktní formulář',
-            'description' => 'Kontaktní formulář našeho webu.',
-            'keywords' => 'kontakt, email, formulář'
+            'description' => 'Kontaktní formulář našeho webu.'
         );
 
         if ($_POST)

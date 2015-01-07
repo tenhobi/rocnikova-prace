@@ -1,14 +1,11 @@
 <?php
 
 /**
- * Class ArticleController
+ * Class ArticleController Takes care about articles and their print.
  */
 class ArticleController extends Controller
 {
 
-    /**
-     * @param $parameters url parts for process
-     */
     public function process($parameters)
     {
         // $parameters[0] - controller
@@ -35,8 +32,7 @@ class ArticleController extends Controller
 
             $this->head = array(
                 'title' => $article['title'],
-                'description' => $article['description'],
-                'keywords' => $article['keywords']
+                'description' => $article['description']
             );
 
             $this->data['title'] = $article['title'];
@@ -49,8 +45,7 @@ class ArticleController extends Controller
             $this->head = array
             (
                 'title' => 'Výpis článků',
-                'description' => 'Výpis všech článků na webu podle data.',
-                'keywords' => 'clanky, vypis, vsechny'
+                'description' => 'Výpis všech článků na webu podle data.'
             );
             $articles = $articleManager->getArticles();
             $this->data['articles'] = $articles;

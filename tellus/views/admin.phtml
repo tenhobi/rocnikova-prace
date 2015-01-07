@@ -1,7 +1,17 @@
-<p>Vítejte v administraci, jste přihlášeni jako <?= $first_name ?></p>
+<p>Vítejte v administraci, jste přihlášeni jako <?= $nickname ?></p>
 <?php if (!$admin) : ?>
     <p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
 <?php endif ?>
 <h2><a href="<?=Url::getAlias('editor')?>">Editor článků</a></h2>
 <h2><a href="<?=Url::getAlias('article')?>">Seznam článků</a></h2>
 <h2><a href="<?=Url::getAlias('admin')?>/<?=Url::getCommand('logout')?>">Odhlásit</a></h2>
+
+
+
+<?php foreach ($notices as $notice) : ?>
+    <div class="notices">
+        <p class="notice"><?= $notice ?></p>
+    </div>
+<?php endforeach ?>
+
+<?php $this->subController->printView(); ?>

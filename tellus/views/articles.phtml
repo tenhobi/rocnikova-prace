@@ -7,8 +7,8 @@
                 <?= $article['description'] ?>
                 <?php if ($admin): ?>
                     <br />
-                    <a href="<?=Url::getAlias('editor')?>/<?= $article['url'] ?>">Editovat</a>
-                    <a href="<?=Url::getAlias('article')?>/<?= $article['url'] ?>/<?=Url::getCommand('delete')?>">Odstranit</a>
+                    <a href="<?=Url::getAlias('admin')?>/<?=Url::getAlias('editor')?>/<?= $article['url'] ?>">Editovat</a>
+                    <a href="<?=Url::getAlias('admin')?>/<?=Url::getAlias('article')?>/<?= $article['url'] ?>/<?=Url::getCommand('delete')?>">Odstranit</a>
                 <?php endif ?>
             </td>
         </tr>

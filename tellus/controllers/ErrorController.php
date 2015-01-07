@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class ErrorController Takes care about error page and correct error header.
+ */
 class ErrorController extends Controller
 {
 
