@@ -15,7 +15,7 @@
     <nav>
         <ul>
             <li><a href="<?= Url::getAlias('summary') ?>">Přehled</a></li>
-            <li><a href="<?= Url::getAlias('article') ?>">Články</a></li>
+            <li><a href="<?= Url::getAlias('articles') ?>">Články</a></li>
             <li><a href="<?= Url::getAlias('user') ?>">Uživatelé</a></li>
             <li><a href="<?= Url::getAlias('admin') ?>">Administrace</a></li>
         </ul>
@@ -23,9 +23,7 @@
 </header>
 
 <?php foreach ($notices as $notice) : ?>
-    <div class="notices">
-        <p class="notice"><?= $notice ?></p>
-    </div>
+    <p class="notice"><?= $notice ?></p>
 <?php endforeach ?>
 
 <article>

@@ -5,13 +5,8 @@
  */
 class RegisterController extends Controller
 {
-    public function process($parameters)
+    public function processAdmin()
     {
-        if (!empty($parameters[0]) && !Url::isInAdmin($parameters))
-            $this->redirect(Url::getAlias('admin') . '/' . Url::getAlias('register'));
-
-        $this->head['title'] = 'Registrace';
-
         if ($_POST)
         {
             $recaptcha = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LeSJAATAAAAAJg4ySI4sHuhatGDre7Fk3cdV0W6&response=' . $_POST['g-recaptcha-response']));
@@ -35,6 +30,8 @@ class RegisterController extends Controller
                 $this->addNotice('ReCaptcha vás nevyhodnotil jako člověka.');
             }
         }
+
+        $this->head['title'] = 'Registrace';
         $this->view = 'register';
     }
 }

@@ -5,16 +5,13 @@
  */
 class EditorController extends Controller
 {
-    public function process($parameters)
+    /**
+     * @param $parameters
+     */
+    public function processAdmin($parameters)
     {
-        // $parameters[0] - controller
-        // $parameters[1] - article
-        // $parameters[2] - command
+        $this->checkUser(false);
 
-        if (!empty($parameters[0]) && !Url::isInAdmin($parameters))
-            $this->redirect(Url::getAlias('admin') . '/' . Url::getAlias('editor'));
-
-        $this->checkUser(true);
         $this->head['title'] = 'Editor článků';
 
         $articleManager = new ArticleManager();
@@ -29,8 +26,12 @@ class EditorController extends Controller
 
         if ($_POST)
         {
+            $userManager = new UserManager();
+            $user = $userManager->getUser();
+
             $keys = array('title', 'content', 'url', 'description');
             $article = array_intersect_key($_POST, array_flip($keys));
+            $article['author_id'] = $user['users_id'];
             $articleManager->saveArticle($_POST['articles_id'], $article);
             $this->addNotice('Článek byl úspěšně uložen.');
             $this->redirect(Url::getAlias('article') . '/' . $article['url']);

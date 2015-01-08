@@ -1,14 +1,16 @@
-<h1>Seznam článků</h1>
+<h1><?= $heading ?></h1>
 <table>
     <?php foreach ($articles as $article) : ?>
         <tr>
             <td>
-                <h2><a href="<?=Url::getAlias('article')?>/<?= $article['url'] ?>"><?= $article['title'] ?></a></h2>
+                <h2><a href="<?= Url::getAlias('article') ?>/<?= $article['url'] ?>"><?= $article['title'] ?></a></h2>
                 <?= $article['description'] ?>
+                <?php if ($access or $admin): ?>
+                    <br/>
+                    <a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('editor') ?>/<?= $article['url'] ?>">Editovat</a>
+                <?php endif ?>
                 <?php if ($admin): ?>
-                    <br />
-                    <a href="<?=Url::getAlias('admin')?>/<?=Url::getAlias('editor')?>/<?= $article['url'] ?>">Editovat</a>
-                    <a href="<?=Url::getAlias('admin')?>/<?=Url::getAlias('article')?>/<?= $article['url'] ?>/<?=Url::getCommand('delete')?>">Odstranit</a>
+                    <a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('article') ?>/<?= $article['url'] ?>/<?= Url::getCommand('delete') ?>">Odstranit</a>
                 <?php endif ?>
             </td>
         </tr>

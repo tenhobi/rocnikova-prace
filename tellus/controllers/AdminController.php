@@ -26,7 +26,7 @@ class AdminController extends Controller
             $userManager->logOut();
             $this->redirect(Url::getAlias('admin') . '/' . Url::getAlias('login'));
         }
-        else if (!empty($parameters[1]) && Url::isInAdmin($parameters))
+        else if (!empty($parameters[1]))
         {
             $address = Url::getController($parameters[1]);
 
@@ -44,13 +44,14 @@ class AdminController extends Controller
                 $this->redirect(Url::getAlias('error'));
             }
 
-            $this->subController->process($parameters);
+            $this->subController->processAdmin($parameters);
         }
 
         $user = $userManager->getUser();
 
         $this->data['nickname'] = $user['nickname'];
         $this->data['admin'] = $user['admin'];
+        $this->data['access'] = isset($user);
         $this->data['notices'] = $this->getNotices();
 
         $this->head['title'] = $this->subController->head['title'];

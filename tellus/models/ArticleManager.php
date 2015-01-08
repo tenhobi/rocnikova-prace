@@ -21,6 +21,16 @@ class ArticleManager
         ');
     }
 
+    public function getArticlesById($id)
+    {
+        return Db::queryAll('
+            SELECT `articles_id`, `title`, `url`, `description`
+            FROM `articles`
+            WHERE `author_id` = ?
+            ORDER BY `articles_id` DESC
+        ', array($id));
+    }
+
     public function saveArticle($id, $article)
     {
         if (!$id)

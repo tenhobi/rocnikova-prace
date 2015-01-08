@@ -39,7 +39,7 @@ class RouterController extends Controller
         $this->data['title'] = $this->controller->head['title'];
         $this->data['description'] = $this->controller->head['description'];
 
-        if (Url::isInAdmin($parameters))
+        if ($controllerClass == 'admin')
             $this->controller->data['notices'] = $this->getNotices();
         else
             $this->data['notices'] = $this->getNotices();

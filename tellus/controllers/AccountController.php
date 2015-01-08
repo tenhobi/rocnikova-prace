@@ -3,15 +3,9 @@
 class AccountController extends Controller
 {
 
-    /**
-     * @param array $parameters Url parts for process with Controller.
-     */
-    function process($parameters)
+    public function processAdmin()
     {
-        if (!empty($parameters[0]) && !Url::isInAdmin($parameters))
-            $this->redirect(Url::getAlias('admin') . '/' . Url::getAlias('login'));
-
-        $this->checkUser(true);
+        $this->checkUser(false);
 
         $userManager = new UserManager();
         $user = $userManager->getUser();

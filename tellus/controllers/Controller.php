@@ -28,7 +28,13 @@ abstract class Controller
     /**
      * @param array $parameters Url parts for process with Controller.
      */
-    abstract function process($parameters);
+    public function process($parameters){
+        $this->redirect(Url::getAlias('error'));
+    }
+
+    public function processAdmin($parameters){
+        $this->redirect(Url::getAlias('error'));
+    }
 
     /**
      * Prints current view with extracted data.

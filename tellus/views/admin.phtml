@@ -1,11 +1,17 @@
-<p>Vítejte v administraci, jste přihlášeni jako <?= $nickname ?></p>
+<?php if ($access) : ?>
+    <p>Vítejte v administraci, jste přihlášeni jako <?= $nickname ?></p>
+<?php endif ?>
+
 <?php if (!$admin) : ?>
     <p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
 <?php endif ?>
-<h2><a href="<?=Url::getAlias('editor')?>">Editor článků</a></h2>
-<h2><a href="<?=Url::getAlias('article')?>">Seznam článků</a></h2>
-<h2><a href="<?=Url::getAlias('admin')?>/<?=Url::getCommand('logout')?>">Odhlásit</a></h2>
 
+<?php if ($access) : ?>
+    <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('account') ?>">Účet</a></h2>
+    <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('articles') ?>">Seznam článků</a></h2>
+    <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('editor') ?>">Editor článků</a></h2>
+    <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getCommand('logout') ?>">Odhlásit</a></h2>
+<?php endif ?>
 
 
 <?php foreach ($notices as $notice) : ?>

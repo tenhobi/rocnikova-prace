@@ -5,16 +5,13 @@
  */
 class LoginController extends Controller
 {
-    public function process($parameters)
+    public function processAdmin()
     {
-        if (!empty($parameters[0]) && !Url::isInAdmin($parameters))
-            $this->redirect(Url::getAlias('admin') . '/' . Url::getAlias('login'));
-
         $userManager = new UserManager();
 
         if ($userManager->getUser())
         {
-            $this->redirect(Url::getAlias('admin'));
+     //       $this->redirect(Url::getAlias('admin'));
         }
 
         $this->head['title'] = 'Přihlášení';
@@ -26,7 +23,8 @@ class LoginController extends Controller
                 $userManager->logIn($_POST['nickname'], $_POST['password']);
                 $this->addNotice('Byl jste úspěšně přihlášen.');
                 $this->redirect(Url::getAlias('admin'));
-            } catch
+            }
+            catch
             (UserError $error)
             {
                 $this->addNotice($error->getMessage());

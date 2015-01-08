@@ -13,46 +13,6 @@ class Url
      * @var array Array of 'alias' => 'command'.
      */
     private static $commands = array();
-    /**
-     * @var array Array with aliases.
-     */
-    private static $admin = array();
-
-    /**
-     * Checks if url is under admin.
-     *
-     * @param array $parameters Array with parted and parsed url.
-     *
-     * @return bool
-     */
-    public static function isInAdmin($parameters = array())
-    {
-        return $parameters[0] == self::getAlias('admin');
-    }
-
-    /**
-     * Checks if alias can be under admin url.
-     *
-     * @param string $alias Name of alias (url) in lowercase.
-     *
-     * @return bool
-     */
-    public static function canBeAliasInAdmin($alias = "")
-    {
-        return in_array($alias, self::$admin);
-    }
-
-    /**
-     * Checks if controller can be under admin url. (Method checks controller's alias.)
-     *
-     * @param string $controller Name of controller in lowercase.
-     *
-     * @return bool
-     */
-    public static function canBeControllerInAdmin($controller = "")
-    {
-        return in_array(self::getAlias($controller), self::$admin);
-    }
 
     /**
      * Returns controller name from aliases name.
@@ -97,14 +57,11 @@ class Url
     {
         self::$urls = array();
         self::$commands = array();
-        self::$admin = array();
 
         foreach (self::getUrlRecord() as $row)
         {
             self::$urls[$row['controller']] = $row['alias'];
 
-            if ($row['admin'] == 1)
-                self::$admin[] = $row['alias'];
         }
 
         foreach (self::getCommandRecord() as $row)
@@ -120,7 +77,7 @@ class Url
     private static function getUrlRecord()
     {
         $record = Db::queryAll('
-            SELECT `controller`, `alias`, `admin`
+            SELECT `controller`, `alias`
             FROM `url`
         ');
         return $record;
