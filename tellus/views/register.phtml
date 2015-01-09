@@ -1,10 +1,17 @@
 <h1>Registrace</h1>
 
 <form method="post">
-    Jméno<br />
-    <input type="text" name="nickname" /><br />
+    Přezdívka - <em>slouží pro přihlášení a jako url adresa profilu</em><br />
+    <input type="text" pattern=".{3,}" title="minimálně 3 znaky" name="nickname" /><br />
+
+    <br />
+
     Heslo<br />
-    <input type="password" name="password" /><br />
+    <input type="password" pattern=".{5,}" title="minimálně 5 znaků" name="password" /><br />
+
+    <br />
+
     <div class="g-recaptcha" data-sitekey="6LeSJAATAAAAAK7u25rYNksRHwSpQfOD5j-c_2Fy"></div>
+
     <input type="submit" value="Registrovat" />
 </form>

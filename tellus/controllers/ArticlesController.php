@@ -10,8 +10,8 @@ class ArticlesController extends Controller
         $user = $userManager->getUser();
 
         $this->data = array(
-            'admin' => $user && $user['admin'],
-            'access' => $user && $user['admin'],
+            'admin' => false,
+            'access' => false,
             'heading' => '',
             'articles' => array()
         );

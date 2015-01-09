@@ -16,6 +16,7 @@
       <column name="keywords" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="articles_id"/>
+      <index name="unique_url" unique="true" columns="url"/>
     </table>
     <table name="url" schema="" catalog="tellus" type="TABLE">
       <column name="controller" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>

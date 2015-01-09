@@ -14,12 +14,12 @@ class AccountController extends Controller
         {
             try
             {
-                $keys = array('nickname', 'content', 'url', 'description');
+                $keys = array('nickname', 'description', 'motto', 'website', 'facebook', 'twitter', 'googleplus');
                 $info = array_intersect_key($_POST, array_flip($keys));
                 $userManager->saveInfo($user['users_id'], $info);
-                $this->addNotice('Informace byly uloženy. Přihlašte se prosím znova.');
-                $userManager->logOut();
-                $this->redirect(Url::getAlias('admin') . '/' . Url::getAlias('login'));
+                $userManager->setUser($info);
+                $this->addNotice('Informace byly úspěšně uloženy.');
+                $this->redirect(Url::getAlias('admin') . '/' . Url::getAlias('account'));
             }
             catch (UserError $error)
             {

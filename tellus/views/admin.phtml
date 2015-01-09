@@ -10,6 +10,9 @@
     <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('account') ?>">Účet</a></h2>
     <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('articles') ?>">Seznam článků</a></h2>
     <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('editor') ?>">Editor článků</a></h2>
+    <?php if ($admin) : ?>
+        <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>">Správa uživatelů</a></h2>
+    <?php endif ?>
     <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getCommand('logout') ?>">Odhlásit</a></h2>
 <?php endif ?>
 

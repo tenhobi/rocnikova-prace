@@ -6,7 +6,7 @@
  */
 class UserManager
 {
-    const LOGIN_LENGTH = 2;
+    const LOGIN_LENGTH = 3;
     const PASSWORD_LENGTH = 5;
 
     /**
@@ -18,8 +18,15 @@ class UserManager
      */
     public function getImprint($password)
     {
-        $salt = 'fd16sdfd2ew#$%';
-        return hash('sha256', $password . $salt);
+        return password_hash($password, PASSWORD_DEFAULT);
+    }
+
+    public function getUrl($name)
+    {
+        $url = trim($name);
+        $url = str_replace(' ', '', $url);
+        $url = strtolower($url);
+        return $url;
     }
 
     /**
@@ -27,27 +34,32 @@ class UserManager
      *
      * @param $login     string Name with more than 2 letters.
      * @param $password  string Password with more than 5 letters.
-     * @param $year      string Simple actual-year anti spam.
      *
      * @throws UserError
      */
     public function register($login, $password)
     {
-        if (strlen($login) <= self::LOGIN_LENGTH)
+        if (strlen($login) < self::LOGIN_LENGTH)
         {
-            $length = self::LOGIN_LENGTH + 1;
+            $length = self::LOGIN_LENGTH;
             throw new UserError("Příliš krátké jméno. Jméno musí mít alespoň $length znaků.");
         }
 
-        if (strlen($password) <= self::PASSWORD_LENGTH)
+        if (strlen($password) < self::PASSWORD_LENGTH)
         {
-            $length = self::PASSWORD_LENGTH + 1;
+            $length = self::PASSWORD_LENGTH;
             throw new UserError("Příliš krátké heslo. Heslo musí mít alespoň $length znaků.");
+        }
+
+        if (preg_match("/[^a-zA-Z0-9_-]+/", $login))
+        {
+            throw new UserError("Přezdívka může obsahovat pouze znaky a-z, A-Z, 0-9, _ a -.");
         }
 
         $user = array(
             'nickname' => $login,
-            'password' => $this->getImprint($password),
+            'password' => $this->getImprint($password, $login),
+            'url' => $this->getUrl($login)
         );
 
         try
@@ -73,10 +85,10 @@ class UserManager
         $user = Db::queryOne('
             SELECT *
             FROM `users`
-            WHERE `nickname` = ? AND `password` = ?
-        ', array($login, $this->getImprint($password)));
+            WHERE `nickname` = ?
+        ', array($login));
 
-        if (!$user)
+        if (!password_verify($password, $user['password']))
             throw new UserError('Neplatné jméno nebo heslo.');
 
         $_SESSION['user'] = $user;
@@ -101,12 +113,49 @@ class UserManager
         return null;
     }
 
+    public function getUsers()
+    {
+        return Db::queryAll('
+            SELECT `nickname`, `url`, `description`, `admin`
+            FROM `users`
+            ORDER BY `nickname` ASC
+        ');
+    }
+
     public function saveInfo($id, $info)
     {
+        if (preg_match("/[^a-zA-Z0-9_-]+/", $info['nickname']))
+        {
+            throw new UserError("Přezdívka může obsahovat pouze znaky a-z, A-Z, 0-9, _ a -.");
+        }
+
+        $info['url'] = $this->getUrl($info['nickname']);
+
         if ($id)
             Db::update('users', $info, 'WHERE users_id = ?', array($id));
         else
             throw new UserError('Informace se nepodařily aktualizovat.');
+    }
+
+    public function setUser($info)
+    {
+        if (isset($_SESSION['user']))
+        {
+            foreach ($info as $key => $value)
+            {
+                $_SESSION['user'][$key] = $value;
+            }
+        }
+    }
+
+    public function addToAdmin($nickname)
+    {
+        Db::update('users', array('admin' => 1), "WHERE `nickname` = ?", array($nickname));
+    }
+
+    public function removeFromAdmin($nickname)
+    {
+        Db::update('users', array('admin' => 0), "WHERE `nickname` = ?", array($nickname));
     }
 
 }

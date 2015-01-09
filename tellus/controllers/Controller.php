@@ -28,11 +28,13 @@ abstract class Controller
     /**
      * @param array $parameters Url parts for process with Controller.
      */
-    public function process($parameters){
+    public function process($parameters)
+    {
         $this->redirect(Url::getAlias('error'));
     }
 
-    public function processAdmin($parameters){
+    public function processAdmin($parameters)
+    {
         $this->redirect(Url::getAlias('error'));
     }
 
@@ -126,10 +128,15 @@ abstract class Controller
     {
         $userManager = new UserManager();
         $user = $userManager->getUser();
-        if (!$user || ($admin && !$user['admin']))
+        if (!$user)
         {
             $this->addNotice('Nedostatečná oprávnění.');
             $this->redirect(Url::getAlias('admin') . '/' . Url::getAlias('login'));
+        }
+        else if (($admin && !$user['admin']))
+        {
+            $this->addNotice('Nedostatečná oprávnění.');
+            $this->redirect(Url::getAlias('admin') . '/' . Url::getAlias('account'));
         }
     }
 
