@@ -9,6 +9,7 @@ class Url
      * @var array Array of 'controller' => 'alias'.
      */
     private static $urls = array();
+    
     /**
      * @var array Array of 'alias' => 'command'.
      */
