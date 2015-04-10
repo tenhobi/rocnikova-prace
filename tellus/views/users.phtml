@@ -5,11 +5,11 @@
                 <h2><a href="<?= Url::getAlias('user') ?>/<?= $user['url'] ?>"><?= $user['nickname'] ?></a></h2>
                 <?php if($admin && !$user['admin']): ?>
                     <a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>/<?= $user['nickname'] ?>/<?= Url::getCommand('add-to-admin')?>">Udělit práva admina</a>
-                    <br>
+                    <br />
                 <?php endif ?>
                 <?php if($admin && $user['admin']): ?>
                     <a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>/<?= $user['nickname'] ?>/<?= Url::getCommand('remove-from-admin')?>">Odebrat práva admina</a>
-                    <br>
+                    <br />
                 <?php endif ?>
                 <p><?= $user['description'] ?></p>
             </td>
