@@ -111,16 +111,6 @@ abstract class Controller
             return array();
     }
 
-    /*
-    public function checkUser($role = 0){
-        // role 0: user
-        // role 1: moderator
-        // role 2: admin
-        $userManager = new UserManager();
-        $user = $userManager->getUser();
-
-    }*/
-
     /**
      * @param bool $admin Says if user must be admin or not.
      */

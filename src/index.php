@@ -12,7 +12,7 @@ function autoLoad($class)
 }
 
 
-Db::logIn("127.0.0.1", "root", "", "tellus");
+Db::logIn("127.0.0.1", "root", "", "hb_rocnikovka");
 //Db::login("","HB_rocnikovka", "rocnikovy-projekt", "HB_rocnikovka");
 
 Url::init();
