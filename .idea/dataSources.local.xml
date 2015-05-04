@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - tellus@localhost" uuid="e3acb4fe-c0c5-4b9a-b9a1-18550d15e6c6">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>tellus.*</schema-pattern>
+      <default-schemas>tellus.*</default-schemas>
+    </data-source>
+  </component>
+</project>

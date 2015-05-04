@@ -1,0 +1,12 @@
+<h1>Kontaktní formulář</h1>
+
+<p>Kontaktujte nás odesláním formuláře níže.</p>
+
+<form method="post" id="form-email">
+    Vaše emailová adresa<br />
+    <input type="email" name="email" required="required" value="<?php if (isset($_POST['email'])) echo($this->protect($_POST['email'])); ?>" /><br />
+    Antispam - zadejte aktuální rok<br />
+    <input type="text" name="year" required="required" /><br />
+    <textarea name="msg"><?php if (isset($_POST['msg'])) echo($this->protect($_POST['msg'])); ?></textarea><br />
+    <input type="submit" value="Odeslat" />
+</form>

@@ -1,0 +1,31 @@
+<h1>Nastavení účtu <?= $user['nickname'] ?></h1>
+
+<form method="post">
+
+    Přezdívka: <br>
+    <input type="text" value="<?= $user['nickname'] ?>" name="nickname"/><br/>
+
+    Popisek: <br>
+    <input type="text" value="<?= $user['description'] ?>" maxlength="500" name="description"/><br/>
+
+    Motto: <br>
+    <input type="text" value="<?= $user['motto'] ?>" maxlength="140" name="motto"/><br/>
+
+    <br/>
+    Webová stránka:
+    <input type="text" value="<?= $user['website'] ?>" name="website"/>
+
+    <br/>
+    Facebook:
+    <input type="text" value="<?= $user['facebook'] ?>" name="facebook"/>
+
+    <br/>
+    Twitter:
+    <input type="text" value="<?= $user['twitter'] ?>" name="twitter"/>
+
+    <br/>
+    Google+:
+    <input type="text" value="<?= $user['googleplus'] ?>" name="googleplus"/>
+
+    <input type="submit" value="Uložit informace" />
+</form>

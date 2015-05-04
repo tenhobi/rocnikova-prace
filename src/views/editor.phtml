@@ -1,0 +1,29 @@
+<h1>Editor článků</h1>
+
+<form method="post">
+    <input type="hidden" name="articles_id" value="<?= $article['articles_id'] ?>" />
+    Titulek<br />
+    <input type="text" name="title" pattern=".{5,}" title="minimálně 5 znaků" value="<?= $article['title'] ?>" /><br />
+    URL<br />
+    <input type="text" name="url" pattern=".{5,}" title="minimálně 5 znaků" value="<?= $article['url'] ?>" /><br />
+    Popisek<br />
+    <input type="text" pattern=".{20,}" title="minimálně 20 znaků" name="description" value="<?= $article['description'] ?>" /><br />
+    <textarea pattern=".{20,}" title="minimálně 20 znaků" name="content"><?= $article['content'] ?></textarea>
+    <input type="submit" value="Uložit článek" />
+</form>
+
+<script type="text/javascript" src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea[name=content]",
+        plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        entities: "160,nbsp",
+        entity_encoding: "named",
+        entity_encoding: "raw"
+    });
+</script>

@@ -1,4 +1,3 @@
-blog
-====
+#Ročníkovka
 
-CMS for blog
+Ročníkový projekt 2014/2015, Honza Bittner 3.D.
