@@ -2,7 +2,7 @@
     <p>Vítejte v administraci, jste přihlášeni jako <?= $nickname ?></p>
 <?php endif ?>
 
-<?php if (!$admin) : ?>
+<?php if ($access && !$admin) : ?>
     <p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
 <?php endif ?>
 
