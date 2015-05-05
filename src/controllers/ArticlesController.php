@@ -45,6 +45,7 @@ class ArticlesController extends Controller
         $this->data['articles'] = $articles;
         $this->data['access'] = true;
         $this->data['heading'] = "Výpis článků uživatele $nickname";
+        $this->data['user'] = $user;
 
         $this->head = array
         (

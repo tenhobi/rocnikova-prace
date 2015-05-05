@@ -26,8 +26,10 @@ class ArticleManager
     public function getArticlesById($id)
     {
         return Db::queryAll('
-            SELECT `author_id`, `articles_id`, `title`, `url`, `description`
-            FROM `articles`
+            SELECT a.`author_id`, a.`articles_id`, a.`title`, a.`url`, a.`description`, u.`nickname`, u.`url` as user_url
+            FROM `articles` as a
+            LEFT JOIN `users` as u
+            ON a.`author_id` = u.`users_id`
             WHERE `author_id` = ?
             ORDER BY `articles_id` DESC
         ', array($id));
