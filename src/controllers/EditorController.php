@@ -16,8 +16,12 @@ class EditorController extends Controller
 
         $articleManager = new ArticleManager();
 
+        $userManager = new UserManager();
+        $user = $userManager->getUser();
+
         $article = array(
             'articles_id' => '',
+            'author_id' => $user['users_id'],
             'title' => '',
             'content' => '',
             'url' => '',
@@ -26,12 +30,8 @@ class EditorController extends Controller
 
         if ($_POST)
         {
-            $userManager = new UserManager();
-            $user = $userManager->getUser();
-
-            $keys = array('title', 'content', 'url', 'description');
+            $keys = array('author_id', 'title', 'content', 'url', 'description');
             $article = array_intersect_key($_POST, array_flip($keys));
-            $article['author_id'] = $user['users_id'];
             $articleManager->saveArticle($_POST['articles_id'], $article);
             $this->addNotice('Článek byl úspěšně uložen.');
             $this->redirect(Url::getAlias('article') . '/' . $article['url']);
@@ -40,13 +40,20 @@ class EditorController extends Controller
         {
             $loadedArticle = $articleManager->getArticle($parameters[2]);
 
-            if ($loadedArticle)
-                $article = $loadedArticle;
+            if ($loadedArticle){
+                if ($loadedArticle['author_id'] == $user['users_id']){
+                    $article = $loadedArticle;
+                }
+                else {
+                    $this->addNotice('Na úpravu cizího článku nemáš práva!');
+                }
+            }
             else
-                $this->addNotice('Článek nebyl nalezen');
+                $this->addNotice('Článek nebyl nalezen.');
         }
 
         $this->data['article'] = $article;
+        $this->data['admin'] = $user['admin'];
 
         $this->view = 'editor';
     }

@@ -6,6 +6,12 @@
     <input type="text" name="title" pattern=".{5,}" title="minimálně 5 znaků" value="<?= $article['title'] ?>" /><br />
     URL<br />
     <input type="text" name="url" pattern=".{5,}" title="minimálně 5 znaků" value="<?= $article['url'] ?>" /><br />
+
+    <?php if($admin): ?>
+        ID autora<br />
+        <input type="text" name="author_id" value="<?= $article['author_id'] ?>" /><br />
+    <?php endif ?>
+
     Popisek<br />
     <input type="text" pattern=".{20,}" title="minimálně 20 znaků" name="description" value="<?= $article['description'] ?>" /><br />
     <textarea pattern=".{20,}" title="minimálně 20 znaků" name="content"><?= $article['content'] ?></textarea>

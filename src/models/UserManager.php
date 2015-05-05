@@ -116,10 +116,19 @@ class UserManager
     public function getUsers()
     {
         return Db::queryAll('
-            SELECT `nickname`, `url`, `description`, `admin`
+            SELECT `users_id`, `nickname`, `url`, `description`, `admin`
             FROM `users`
             ORDER BY `nickname` ASC
         ');
+    }
+
+    public function getUserByNick($nick)
+    {
+        return Db::queryOne('
+            SELECT `users_id`, `nickname`, `admin`, `url`, `description`, `motto`, `website`, `facebook`, `twitter`, `googleplus`
+            FROM `users`
+            WHERE `nickname` = ?
+        ', array($nick));
     }
 
     public function saveInfo($id, $info)

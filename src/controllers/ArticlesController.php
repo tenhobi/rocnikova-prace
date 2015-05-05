@@ -24,6 +24,8 @@ class ArticlesController extends Controller
         );
         $articles = $articleManager->getArticles();
         $this->data['articles'] = $articles;
+        $this->data['admin'] = $user && $user['admin'];
+        $this->data['user'] = $user;
         $this->view = 'articles';
     }
 
