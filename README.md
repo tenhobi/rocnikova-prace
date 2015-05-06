@@ -1,3 +1,5 @@
-#Ročníkovka
+#Ročníkový práce
+###(Seminar work)
 
-Ročníkový projekt 2014/2015, Honza Bittner 3.D.
+Ročníková práce, 3. ročník - 2014/2015.
+Seminar work, 3rd grade high school - 2014/2015.
