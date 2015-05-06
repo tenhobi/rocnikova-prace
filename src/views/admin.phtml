@@ -2,7 +2,7 @@
     <p>Vítejte v administraci, jste přihlášeni jako <?= $nickname ?></p>
 <?php endif ?>
 
-<?php if (!$admin) : ?>
+<?php if ($access && !$admin) : ?>
     <p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
 <?php endif ?>
 
@@ -13,7 +13,8 @@
     <?php if ($admin) : ?>
         <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>">Správa uživatelů</a></h2>
     <?php endif ?>
-    <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getCommand('logout') ?>">Odhlásit</a></h2>
+    <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getCommand('logout') ?>">Odhlásit se</a></h2>
+    <h3><a href="<?= Url::getAlias('user')?>/<?= $userUrl ?>">Můj profil</a></h3>
 <?php endif ?>
 
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Počítač: localhost
--- Vygenerováno: Pon 04. kvě 2015, 10:51
+-- Vygenerováno: Pon 04. kvě 2015, 11:06
 -- Verze serveru: 5.1.73-14.12-log
 -- Verze PHP: 5.3.10-1ubuntu3.8
 
@@ -45,9 +45,6 @@ CREATE TABLE IF NOT EXISTS `articles` (
 --
 
 INSERT INTO `articles` (`articles_id`, `author_id`, `title`, `url`, `description`, `keywords`, `content`) VALUES
-(1, 1, 'Úvodní článeček', 'uvod', 'Popis úvodního článku', 'úvod, start', 'Obsah prvního článku, který je zároveň testovací.'),
-(3, 1, 'Nový článeček', 'novy-clanek', 'abc', 'a,b,c', '<p>Nový článek napsaný s url aliasy... :) </p>'),
-(5, 1, 'HoBi je bůh!', 'hobi-je-buh', 'Článek o tom, že HoBi je bůh.', 'hobi, boh, zápor', '<h1><strong>HoBi je boh! Zapamätajte si to!</strong></h1>'),
 (6, 2, 'První článek od ne-admina', 'pisu-clanek-a-nejsem-admin', 'clanek od neadmina, který má velký úspěch', '', '<p>Nejlepší článek, a to je dokonce od <strong>neadmina</strong>!</p>'),
 (7, 2, 'Ahojda s ID', 'ahojda-s-idckem-lasko', 'aaa', '', '<p>b<strong>v</strong>bb</p>'),
 (8, 1, 'aaaaa', 'AAaaa', 'adfafdassdfasdfasdfasdfsadfasdfas', '', '<p>asdfasdfsadf asdf a<strong>sdf as</strong>df asdf asdadsfasdf</p>'),

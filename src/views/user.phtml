@@ -1,0 +1,23 @@
+<h2><?= $user['nickname'] ?></h2>
+
+<?php if($user['admin']): ?>
+    <p>administrátor</p>
+<?php endif ?>
+
+<p>Profil je dostupný pod url <b><?= $user['url'] ?></b>.</p>
+
+<p><?= $user['description'] ?></p>
+<p><?= $user['motto'] ?></p>
+<a href="<?= $user['website'] ?>">webové stránky</a>
+
+<?php if($user['facebook']): ?>
+    <a href="<?= $user['facebook'] ?>">facebook</a>
+<?php endif ?>
+
+<?php if($user['twitter']): ?>
+    <a href="<?= $user['twitter'] ?>">twitter</a>
+<?php endif ?>
+
+<?php if($user['googleplus']): ?>
+    <a href="<?= $user['googleplus'] ?>">facebook</a>
+<?php endif ?>

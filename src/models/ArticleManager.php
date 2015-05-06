@@ -6,7 +6,7 @@ class ArticleManager
     public function getArticle($url)
     {
         return Db::queryOne('
-            SELECT `articles_id`, `title`, `content`, `url`, `description`, `keywords`
+            SELECT `articles_id`, `author_id`, `title`, `content`, `url`, `description`, `keywords`
             FROM `articles`
             WHERE `url` = ?
         ', array($url));
@@ -15,17 +15,21 @@ class ArticleManager
     public function getArticles()
     {
         return Db::queryAll('
-            SELECT `articles_id`, `title`, `url`, `description`
-            FROM `articles`
-            ORDER BY `articles_id` DESC
+            SELECT a.`articles_id`, a.`author_id`, a.`title`, a.`url`, a.`description`, u.`nickname`, u.`url` as user_url
+            FROM `articles` as a
+            LEFT JOIN `users` as u
+            ON a.`author_id` = u.`users_id`
+            ORDER BY `a`.`articles_id` DESC
         ');
     }
 
     public function getArticlesById($id)
     {
         return Db::queryAll('
-            SELECT `articles_id`, `title`, `url`, `description`
-            FROM `articles`
+            SELECT a.`author_id`, a.`articles_id`, a.`title`, a.`url`, a.`description`, u.`nickname`, u.`url` as user_url
+            FROM `articles` as a
+            LEFT JOIN `users` as u
+            ON a.`author_id` = u.`users_id`
             WHERE `author_id` = ?
             ORDER BY `articles_id` DESC
         ', array($id));

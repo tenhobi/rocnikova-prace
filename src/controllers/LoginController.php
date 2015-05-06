@@ -11,7 +11,7 @@ class LoginController extends Controller
 
         if ($userManager->getUser())
         {
-     //       $this->redirect(Url::getAlias('admin'));
+            $this->redirect(Url::getAlias('admin'));
         }
 
         $this->head['title'] = 'Přihlášení';

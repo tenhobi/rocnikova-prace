@@ -10,7 +10,7 @@ class RegisterController extends Controller
     {
         if ($_POST)
         {
-            $recaptcha = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LeSJAATAAAAAJg4ySI4sHuhatGDre7Fk3cdV0W6&response=' . $_POST['g-recaptcha-response']));
+            //$recaptcha = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LeSJAATAAAAAJg4ySI4sHuhatGDre7Fk3cdV0W6&response=' . $_POST['g-recaptcha-response']));
             //if ($recaptcha->{'success'} == 'true')
             if (true)
             {

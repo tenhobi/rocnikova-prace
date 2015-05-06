@@ -5,7 +5,11 @@
             <td>
                 <h2><a href="<?= Url::getAlias('article') ?>/<?= $article['url'] ?>"><?= $article['title'] ?></a></h2>
                 <?= $article['description'] ?>
-                <?php if ($access or $admin): ?>
+                <br>
+                ID článku <?= $article['articles_id'] ?>
+                <br>
+                autor <?= $article['nickname'] ?>
+                <?php if ($admin OR $article['author_id'] == $user['users_id']): ?>
                     <br/>
                     <a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('editor') ?>/<?= $article['url'] ?>">Editovat</a>
                 <?php endif ?>

@@ -24,6 +24,8 @@ class ArticlesController extends Controller
         );
         $articles = $articleManager->getArticles();
         $this->data['articles'] = $articles;
+        $this->data['admin'] = $user && $user['admin'];
+        $this->data['user'] = $user;
         $this->view = 'articles';
     }
 
@@ -43,6 +45,7 @@ class ArticlesController extends Controller
         $this->data['articles'] = $articles;
         $this->data['access'] = true;
         $this->data['heading'] = "Výpis článků uživatele $nickname";
+        $this->data['user'] = $user;
 
         $this->head = array
         (
