@@ -51,6 +51,7 @@ class AdminController extends Controller
 
         $this->data['nickname'] = $user['nickname'];
         $this->data['admin'] = $user['admin'];
+        $this->data['userUrl'] = $user['url'];
         $this->data['access'] = isset($user);
         $this->data['notices'] = $this->getNotices();
 

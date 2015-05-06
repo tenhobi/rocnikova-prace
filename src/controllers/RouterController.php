@@ -16,7 +16,12 @@ class RouterController extends Controller
         $parsedURL = $this->parseURL($parameters[0]);
 
         if (empty($parsedURL[0]))
-            $this->redirect(Url::getAlias('article') . "/uvod");
+            $this->redirect(Url::getAlias('articles'));
+
+        if (isset($_SESSION['user']))
+        {
+            $this->refreshUuserData();
+        }
 
         $address = Url::getController($parsedURL[0]);
 
@@ -63,5 +68,16 @@ class RouterController extends Controller
 
         $partedPath = explode('/', $parsedURL);
         return $partedPath;
+    }
+
+    public function refreshUuserData()
+    {
+        $user = Db::queryOne('
+            SELECT *
+            FROM `users`
+            WHERE `users_id` = ?
+        ', array($_SESSION['user']['users_id']));
+
+        $_SESSION['user'] = $user;
     }
 }

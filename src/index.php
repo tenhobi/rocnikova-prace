@@ -1,6 +1,8 @@
 <?php
 session_start();
 mb_internal_encoding("UTF-8");
+$execution_time = microtime(); // Start counting
+
 spl_autoload_register("autoLoad");
 
 function autoLoad($class)
@@ -20,3 +22,6 @@ Url::init();
 $router = new RouterController();
 $router->process(array($_SERVER['REQUEST_URI']));
 $router->printView();
+
+$execution_time = microtime() - $execution_time;
+printf('%.3f ms', $execution_time*1000);

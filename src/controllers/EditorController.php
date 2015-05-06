@@ -41,7 +41,7 @@ class EditorController extends Controller
             $loadedArticle = $articleManager->getArticle($parameters[2]);
 
             if ($loadedArticle){
-                if ($loadedArticle['author_id'] == $user['users_id']){
+                if ($user['admin'] OR $loadedArticle['author_id'] == $user['users_id']){
                     $article = $loadedArticle;
                 }
                 else {
