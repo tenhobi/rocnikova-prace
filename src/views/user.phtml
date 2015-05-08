@@ -17,8 +17,8 @@
     <p class="info info--warning">Uživatel ještě nemá žádné motto.</p>
 <?php endif ?>
 
-<?php if($user['facebook']): ?>
-    <a href="<?= $user['website'] ?>">webové stránky</a>
+<?php if($user['website']): ?>
+    <a class="user__link" href="<?= $user['website'] ?>" target="_blank">webová stránka</a>
 <?php endif ?>
 
 <?php if($user['facebook']): ?>

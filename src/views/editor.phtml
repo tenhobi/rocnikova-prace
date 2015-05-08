@@ -1,26 +1,39 @@
-<h1>Editor článků</h1>
+<h1 class="heading">Editor článků</h1>
 
-<form method="post">
-    <?php if(!empty($article['articles_id'])): ?>
-        <input type="hidden" name="articles_id" value="<?= $article['articles_id'] ?>" /> <br/>
-    <?php else: ?>
-        <input type="hidden" name="articles_id" value="" /> <br/>
-    <?php endif ?>
-
-    Titulek<br />
-    <input type="text" name="title" pattern=".{5,}" title="minimálně 5 znaků" value="<?= $article['title'] ?>" /><br />
-    URL (zadávejte hodnoty ve formátu 'muj-3-clanek-bude-top') <br />
-    <input type="text" name="url" pattern="[a-z0-9-]{5,}" title="minimálně 5 znaků" value="<?= $article['url'] ?>" /><br />
-
-    <?php if($admin): ?>
-        ID autora<br />
-        <input type="text" name="author_id" value="<?= $article['author_id'] ?>" /><br />
-    <?php endif ?>
-
-    Popisek<br />
-    <input type="text" pattern=".{20,}" title="minimálně 20 znaků" name="description" value="<?= $article['description'] ?>" /><br />
-    <textarea pattern=".{20,}" title="minimálně 20 znaků" name="content"><?= $article['content'] ?></textarea>
-    <input type="submit" value="Uložit článek" />
+<form method="post" class="setting">
+    <ul class="list">
+        <li class="setting__item">
+            <?php if(!empty($article['articles_id'])): ?>
+                <input class="setting__input" type="hidden" name="articles_id" value="<?= $article['articles_id'] ?>" /> <br/>
+            <?php else: ?>
+                <input class="setting__input" type="hidden" name="articles_id" value="" /> <br/>
+            <?php endif ?>
+        </li>
+        <li class="setting__item">
+            <p class="setting__label">Titulek:</p>
+            <input class="setting__input" type="text" name="title" pattern=".{5,}" title="minimálně 5 znaků" value="<?= $article['title'] ?>" />
+        </li>
+        <li class="setting__item">
+            <p class="setting__label">URL (ve formátu 'muj-clanek')</p>
+            <input class="setting__input" type="text" name="url" pattern="[a-z0-9-]{5,}" title="minimálně 5 znaků" value="<?= $article['url'] ?>" />
+        </li>
+        <li class="setting__item">
+            <?php if($admin): ?>
+                <p class="setting__label">ID autora</p>
+                <input class="setting__input" type="text" name="author_id" value="<?= $article['author_id'] ?>" />
+            <?php endif ?>
+        </li>
+        <li class="setting__item">
+            <p class="setting__label">Popisek</p>
+            <input class="setting__input" type="text" pattern=".{20,}" title="minimálně 20 znaků" name="description" value="<?= $article['description'] ?>" />
+        </li>
+        <li class="setting__item">
+            <textarea class="setting__textarea" pattern=".{20,}" title="minimálně 20 znaků" name="content"><?= $article['content'] ?></textarea>
+        </li>
+        <li class="setting__item">
+            <input class="setting__button" type="submit" value="Uložit článek." />
+        </li>
+    </ul>
 </form>
 
 <script type="text/javascript" src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
