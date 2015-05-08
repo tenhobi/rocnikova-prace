@@ -49,4 +49,18 @@ class ArticleController extends Controller
         }
 
     }
+
+    public function processAdmin($parameters)
+    {
+        $this->checkUser(true);
+
+        $articleManager = new ArticleManager();
+
+        if (!empty($parameters[3]) && ($parameters[3] == Url::getCommand('delete')))
+        {
+            $articleManager->deleteArticle($parameters[2]);
+        }
+
+        $this->redirect(Url::getAlias('articles'));
+    }
 }

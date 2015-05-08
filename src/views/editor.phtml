@@ -1,11 +1,16 @@
 <h1>Editor článků</h1>
 
 <form method="post">
-    <input type="hidden" name="articles_id" value="<?= $article['articles_id'] ?>" />
+    <?php if(!empty($article['articles_id'])): ?>
+        <input type="hidden" name="articles_id" value="<?= $article['articles_id'] ?>" /> <br/>
+    <?php else: ?>
+        <input type="hidden" name="articles_id" value="" /> <br/>
+    <?php endif ?>
+
     Titulek<br />
     <input type="text" name="title" pattern=".{5,}" title="minimálně 5 znaků" value="<?= $article['title'] ?>" /><br />
-    URL<br />
-    <input type="text" name="url" pattern=".{5,}" title="minimálně 5 znaků" value="<?= $article['url'] ?>" /><br />
+    URL (zadávejte hodnoty ve formátu 'muj-3-clanek-bude-top') <br />
+    <input type="text" name="url" pattern="[a-z0-9-]{5,}" title="minimálně 5 znaků" value="<?= $article['url'] ?>" /><br />
 
     <?php if($admin): ?>
         ID autora<br />

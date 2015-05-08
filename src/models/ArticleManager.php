@@ -38,7 +38,16 @@ class ArticleManager
     public function saveArticle($id, $article)
     {
         if (!$id)
-            Db::insert('articles', $article);
+        {
+            try
+            {
+                Db::insert('articles', $article);
+            }
+            catch (PDOException $error)
+            {
+                throw new UserError('Článek s touto url pravděpodobně již existuje.');
+            }
+        }
         else
             Db::update('articles', $article, 'WHERE articles_id = ?', array($id));
     }

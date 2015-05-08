@@ -1,0 +1,63 @@
+// # Article preview.
+.article {
+  @import '../base/global';
+
+  //
+  // Article Variables
+  //
+
+  $color: $g-color-text;
+  $color-option: $g-color-warning;
+
+  //
+  // Article Styles
+  //
+
+  width: 100%;
+  padding: 20px;
+  background: darken($g-color-white, 5%);
+  margin: 15px 1%;
+  box-sizing: border-box;
+  font-size: 16px;
+  word-break: break-word;
+
+  @media (min-width: 600px) {
+    width: 48%;
+    display: inline-block;
+  }
+
+  &__title {
+    color: $g-color-primary;
+    text-decoration: none;
+    font-size: 22px;
+    display: inline-block;
+    font-weight: $g-weight-regular;
+  }
+
+  &__author {
+    display: inline-block;
+    text-transform: lowercase;
+    font-size: 12px;
+    color: $color;
+  }
+
+  &__user {
+    text-transform: none;
+    text-decoration: none;
+    color: $g-color-primary;
+  }
+
+  &__description {
+    color: $color;
+    margin: 10px 0 20px;
+  }
+
+  &__option {
+    text-decoration: none;
+    color: $g-color-warning;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

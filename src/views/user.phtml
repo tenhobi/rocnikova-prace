@@ -8,7 +8,10 @@
 
 <p><?= $user['description'] ?></p>
 <p><?= $user['motto'] ?></p>
-<a href="<?= $user['website'] ?>">webové stránky</a>
+
+<?php if($user['facebook']): ?>
+    <a href="<?= $user['website'] ?>">webové stránky</a>
+<?php endif ?>
 
 <?php if($user['facebook']): ?>
     <a href="<?= $user['facebook'] ?>">facebook</a>

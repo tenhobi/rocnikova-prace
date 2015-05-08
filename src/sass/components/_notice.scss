@@ -1,0 +1,23 @@
+// # Quick notice about web progress.
+.notice {
+  @import '../base/global';
+
+  //
+  // Notice Variables
+  //
+
+  $color: $g-color-white;
+  $bg: #79CB83;
+
+  //
+  // Notice Styles
+  //
+
+  width: 80%;
+  background: $bg;
+  border: 2px solid darken($bg, 10%);
+  text-align: center;
+  margin: 5px auto;
+  padding: 5px 0;
+  color: $color;
+}

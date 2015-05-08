@@ -43,6 +43,7 @@ class RouterController extends Controller
 
         $this->data['title'] = $this->controller->head['title'];
         $this->data['description'] = $this->controller->head['description'];
+        $this->data['login'] = isset($_SESSION['user']);
 
         if ($controllerClass == 'admin')
             $this->controller->data['notices'] = $this->getNotices();

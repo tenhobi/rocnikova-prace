@@ -1,0 +1,13 @@
+// # Root Sass file uses for import objects.
+
+// Import CSS reset.
+@import 'base/css-reset';
+@import 'base/elements';
+
+// Import components.
+@import 'components/nav';
+@import 'components/notice';
+@import 'components/main';
+@import 'components/heading';
+@import 'components/article';
+@import 'components/articles';

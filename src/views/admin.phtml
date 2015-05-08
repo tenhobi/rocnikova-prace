@@ -17,11 +17,4 @@
     <h3><a href="<?= Url::getAlias('user')?>/<?= $userUrl ?>">Můj profil</a></h3>
 <?php endif ?>
 
-
-<?php foreach ($notices as $notice) : ?>
-    <div class="notices">
-        <p class="notice"><?= $notice ?></p>
-    </div>
-<?php endforeach ?>
-
 <?php $this->subController->printView(); ?>
