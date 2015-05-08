@@ -1,0 +1,37 @@
+// # Quick notice about web progress.
+.info {
+  @import '../base/global';
+
+  //
+  // Notice Variables
+  //
+
+  $color: $g-color-text;
+
+  //
+  // Notice Styles
+  //
+
+  margin: 20px 0;
+  color: $color;
+  font-size: 16px;
+
+  &--special {
+    color: $g-color-info;
+  }
+
+  &--warning {
+    color: $g-color-warning;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $g-color-primary;
+    font-size: 16px;
+    margin: 0 5px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

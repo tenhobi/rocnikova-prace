@@ -1,22 +1,23 @@
-<h1><?= $heading ?></h1>
-<table>
+<h1 class="heading"><?= $heading ?></h1>
+<ul class="list">
     <?php foreach ($articles as $article) : ?>
-        <tr>
-            <td>
-                <h2><a href="<?= Url::getAlias('article') ?>/<?= $article['url'] ?>"><?= $article['title'] ?></a></h2>
-                <?= $article['description'] ?>
-                <br>
-                ID článku <?= $article['articles_id'] ?>
-                <br>
-                autor <?= $article['nickname'] ?>
+        <li class="article">
+            <a class="article__title" href="<?= Url::getAlias('article') ?>/<?= $article['url'] ?>"><?= $article['title'] ?></a>
+            <p class="article__author">Napsal <a class="article__user" href="<?= Url::getAlias('user') ?>/<?= $article['user_url'] ?>"><?= $article['nickname'] ?></a></p>
+
+            <p class="article__description"><?= $article['description'] ?></p>
+
+            <div class="article__admin">
                 <?php if ($admin OR $article['author_id'] == $user['users_id']): ?>
-                    <br/>
-                    <a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('editor') ?>/<?= $article['url'] ?>">Editovat</a>
+                    <a class="option" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('editor') ?>/<?= $article['url'] ?>">Editovat</a>
                 <?php endif ?>
                 <?php if ($admin): ?>
-                    <a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('article') ?>/<?= $article['url'] ?>/<?= Url::getCommand('delete') ?>">Odstranit</a>
-                <?php endif ?>
-            </td>
-        </tr>
+                    <a class="option" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('article') ?>/<?= $article['url'] ?>/<?= Url::getCommand('delete') ?>">Odstranit</a>
+               <?php endif ?>
+            </div>
+        </li>
     <?php endforeach ?>
-</table>
+</ul>
+<?php if(empty($articles)): ?>
+    <p class="info">Nebyl dosud přidán žádný článek. Nezírej a napiš nějaký!</p>
+<?php endif ?>

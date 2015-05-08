@@ -1,31 +1,37 @@
-<h1>Nastavení účtu <?= $user['nickname'] ?></h1>
+<h1 class="heading">Nastavení účtu <strong class="heading__no-style"><?= $user['nickname'] ?></strong></h1>
 
-<form method="post">
+<form method="post" class="setting">
 
-    Přezdívka: <br>
-    <input type="text" value="<?= $user['nickname'] ?>" name="nickname"/><br/>
+    <ul class="list">
+        <li class="setting__item">
+            <p class="setting__label">Přezdívka:</p>
+            <input class="setting__input" type="text" value="<?= $user['nickname'] ?>" name="nickname">
+        </li>
+        <li class="setting__item">
+            <p class="setting__label">Popisek:</p>
+            <textarea class="setting__textarea" name="description"><?= $user['description'] ?></textarea>
+        </li>
+        <li class="setting__item">
+            <p class="setting__label">Motto:</p>
+            <input class="setting__input" type="text" value="<?= $user['motto'] ?>" maxlength="140" name="motto">
+        </li>
+        <li class="setting__item">
+            <p class="setting__label">Webová stránka:</p>
+            <input class="setting__input" type="text" value="<?= $user['website'] ?>" placeholder="http://" name="website">
+        </li>
+        <li class="setting__item">
+            <p class="setting__label">Facebook přezdívka:</p>
+            <input class="setting__input" type="text" value="<?= $user['facebook'] ?>" name="facebook"/>
+        </li>
+        <li class="setting__item">
+            <p class="setting__label">Twitter přezdívka:</p>
+            <input class="setting__input" type="text" value="<?= $user['twitter'] ?>" placeholder="@" name="twitter"/>
+        </li>
+        <li class="setting__item">
+            <p class="setting__label">Google+ přezdívka: (bez +)</p>
+            <input class="setting__input" type="text" value="<?= $user['googleplus'] ?>" placeholder="+" name="googleplus"/>
+        </li>
+    </ul>
 
-    Popisek: <br>
-    <input type="text" value="<?= $user['description'] ?>" maxlength="500" name="description"/><br/>
-
-    Motto: <br>
-    <input type="text" value="<?= $user['motto'] ?>" maxlength="140" name="motto"/><br/>
-
-    <br/>
-    Webová stránka:
-    <input type="text" value="<?= $user['website'] ?>" name="website"/>
-
-    <br/>
-    Facebook:
-    <input type="text" value="<?= $user['facebook'] ?>" name="facebook"/>
-
-    <br/>
-    Twitter:
-    <input type="text" value="<?= $user['twitter'] ?>" name="twitter"/>
-
-    <br/>
-    Google+:
-    <input type="text" value="<?= $user['googleplus'] ?>" name="googleplus"/>
-
-    <input type="submit" value="Uložit informace" />
+    <input type="submit" class="setting__button" value="Uložit nastavení." />
 </form>

@@ -1,0 +1,9 @@
+// # Styles regular elements.
+@import "global";
+
+body {
+  background: $g-color-white;
+  color: $g-color-primary;
+  font-family: $g-font;
+  font-weight: $g-weight-regular;
+}

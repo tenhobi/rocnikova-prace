@@ -1,0 +1,69 @@
+// # Navigation in header.
+.nav {
+  @import '../base/global';
+
+  //
+  // Nav Variables
+  //
+
+  $color: $g-color-white;
+  $bg: $g-color-primary;
+
+  //
+  // Nav Styles
+  //
+
+  width: 100%;
+  color: $color;
+  display: block;
+  background: $bg;
+
+  &__list {
+    padding: 0 20px;
+    display: block;
+    text-align: center;
+  }
+
+  &__item {
+    display: block;
+
+    @media (min-width: 600px) {
+      display: inline-block;
+    }
+
+  }
+
+  &__link {
+    line-height: 50px;
+    color: darken($color, 7%);
+    text-decoration: none;
+    display: block;
+    padding: 0 10px;
+    position: relative;
+    transition: transform 0.3s ease-in-out 0s;
+
+    &:hover {
+      color: $color;
+    }
+
+    @media (min-width: 600px) {
+
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: $g-color-white;
+        transform: scaleX(0);
+        transition: all 0.2s ease-in-out 0s;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+      }
+    }
+  }
+}

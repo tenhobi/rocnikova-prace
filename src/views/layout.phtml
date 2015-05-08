@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="cs-cz">
 <head>
-    <base href="/blog"/>
+    <base href="/"/>
     <meta charset="UTF-8"/>
     <title><?= $title ?></title>
     <meta name="description" content="<?= $description ?>"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
 <header>
-    <h1>Blog</h1>
-    <nav>
-        <ul>
-            <li><a href="<?= Url::getAlias('articles') ?>">Články</a></li>
-            <li><a href="<?= Url::getAlias('users') ?>">Uživatelé</a></li>
-            <li><a href="<?= Url::getAlias('admin') ?>">Administrace</a></li>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('articles') ?>">Články</a></li>
+            <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('users') ?>">Uživatelé</a></li>
+            <?php if($login): ?>
+                <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('admin') ?>">Administrace</a></li>
+            <?php else: ?>
+                <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('login') ?>">Přihlášení</a></li>
+                <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('register') ?>">Registrace</a></li>
+            <?php endif ?>
         </ul>
     </nav>
 </header>
@@ -25,8 +30,10 @@
     <p class="notice"><?= $notice ?></p>
 <?php endforeach ?>
 
-<article>
+<main class="main">
     <?php $this->controller->printView(); ?>
-</article>
+</main>
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
 </body>
 </html>

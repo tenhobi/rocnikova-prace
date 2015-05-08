@@ -1,6 +1,7 @@
 <header>
-    <h1><?= $title ?></h1>
+    <h1 class="heading"><?= $article['title'] ?></h1>
+    <p class="article__author">Článek napsal <a class="article__user" href="<?= Url::getAlias('user') ?>/<?= $article['user_url'] ?>"><?= $article['nickname'] ?></a></p>
 </header>
-<section>
-    <?= $_content; ?>
+<section class="article__content">
+    <?= $_article['content']; ?>
 </section>

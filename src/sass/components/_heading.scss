@@ -1,0 +1,25 @@
+// # Styles headings in app.
+.heading {
+  @import '../base/global';
+
+  //
+  // Heading variables
+  //
+
+  $color: $g-color-primary;
+
+  //
+  // Heading Styles
+  //
+
+  color: $color;
+  font-size: 30px;
+  margin: 40px 0 20px 0;
+  font-weight: $g-weight-regular;
+  text-transform: uppercase;
+
+  &__no-style {
+    text-decoration: none;
+    text-transform: none;
+  }
+}

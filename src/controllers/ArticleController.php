@@ -38,8 +38,7 @@ class ArticleController extends Controller
                 'description' => $article['description']
             );
 
-            $this->data['title'] = $article['title'];
-            $this->data['content'] = $article['content'];
+            $this->data['article'] = $article;
 
             $this->view = 'article';
         }
@@ -48,5 +47,19 @@ class ArticleController extends Controller
             $this->redirect(Url::getAlias('articles'));
         }
 
+    }
+
+    public function processAdmin($parameters)
+    {
+        $this->checkUser(true);
+
+        $articleManager = new ArticleManager();
+
+        if (!empty($parameters[3]) && ($parameters[3] == Url::getCommand('delete')))
+        {
+            $articleManager->deleteArticle($parameters[2]);
+        }
+
+        $this->redirect(Url::getAlias('articles'));
     }
 }

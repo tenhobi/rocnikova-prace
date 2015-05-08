@@ -1,0 +1,71 @@
+// # Article preview.
+.user {
+  @import '../base/global';
+
+  //
+  // Article Variables
+  //
+
+  $color: $g-color-text;
+  $color-option: $g-color-warning;
+
+  //
+  // Article Styles
+  //
+
+  display: block;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
+  color: $color;
+
+  &--in-list {
+    background: darken($g-color-white, 5%);
+    display: inline-block;
+    margin: 15px 1%;
+    padding: 20px;
+  }
+
+  &__name {
+    color: $g-color-primary;
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+    font-weight: $g-weight-bold;
+
+    &--admin {
+      color: $g-color-info;
+    }
+  }
+
+  &__description {
+    width: 70%;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  &__motto {
+    width: 50%;
+    text-align: center;
+    margin: 20px auto;
+
+    &::before {
+      content: "'";
+    }
+
+    &::after {
+      content: "'";
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $g-color-primary;
+    font-size: 16px;
+    margin: 0 5px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

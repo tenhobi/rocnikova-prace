@@ -1,0 +1,21 @@
+// # Quick notice about web progress.
+.option {
+  @import '../base/global';
+
+  //
+  // Option Variables
+  //
+
+  $color: $g-color-warning;
+
+  //
+  // Option Styles
+  //
+
+  text-decoration: none;
+  color: $color;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
