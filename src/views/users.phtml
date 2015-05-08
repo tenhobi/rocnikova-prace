@@ -1,18 +1,17 @@
-<table>
+<ul class="list">
     <?php foreach ($users as $user) : ?>
-        <tr>
-            <td>
-                <h2><a href="<?= Url::getAlias('user') ?>/<?= $user['url'] ?>"><?= $user['nickname'] ?></a></h2>
-                <?php if($admin && !$user['admin']): ?>
-                    <a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>/<?= $user['nickname'] ?>/<?= Url::getCommand('add-to-admin')?>">Udělit práva admina</a>
-                    <br />
-                <?php endif ?>
-                <?php if($admin && $user['admin']): ?>
-                    <a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>/<?= $user['nickname'] ?>/<?= Url::getCommand('remove-from-admin')?>">Odebrat práva admina</a>
-                    <br />
-                <?php endif ?>
-                <p><?= $user['description'] ?></p>
-            </td>
-        </tr>
+        <?php $adminClass = ($user['admin']) ? 'user__name--admin' : ''; ?>
+        <li class="user">
+            <a class="user__name <?= $adminClass ?>" href="<?= Url::getAlias('user') ?>/<?= $user['url'] ?>"><?= $user['nickname'] ?></a>
+            <?php if($admin && !$user['admin']): ?>
+                <a class="option" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>/<?= $user['nickname'] ?>/<?= Url::getCommand('add-to-admin')?>">Udělit administrátorská práva.</a>
+            <?php endif ?>
+            <?php if($admin && $user['admin']): ?>
+                <a class="option" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>/<?= $user['nickname'] ?>/<?= Url::getCommand('remove-from-admin')?>">Odebrat administrátorská práva.</a>
+            <?php endif ?>
+        </li>
     <?php endforeach ?>
-</table>
+</ul>
+<?php if(empty($users)): ?>
+    <p class="info">Dosud není zaregistrovaný žádný uživatel. Změň osud této stránky, zaregistruj se!</p>
+<?php endif ?>

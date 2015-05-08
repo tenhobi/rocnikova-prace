@@ -51,13 +51,4 @@
     color: $color;
     margin: 10px 0 20px;
   }
-
-  &__option {
-    text-decoration: none;
-    color: $g-color-warning;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }

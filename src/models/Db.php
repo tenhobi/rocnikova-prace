@@ -19,7 +19,7 @@ class Db
             self::$connection = @new PDO
             (
                 "mysql:host=$host;dbname=$database",
-                //"mysql:unix_socket=/tmp/mysql51.sock;dbname=$database",
+//                "mysql:unix_socket=/tmp/mysql51.sock;dbname=$database",
                 $user,
                 $password,
                 self::$settings

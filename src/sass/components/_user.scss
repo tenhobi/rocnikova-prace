@@ -1,0 +1,40 @@
+// # Article preview.
+.user {
+  @import '../base/global';
+
+  //
+  // Article Variables
+  //
+
+  $color: $g-color-text;
+  $color-option: $g-color-warning;
+
+  //
+  // Article Styles
+  //
+
+  padding: 20px;
+  display: inline-block;
+  background: darken($g-color-white, 5%);
+  margin: 15px 1%;
+  box-sizing: border-box;
+  font-size: 14px;
+
+  &__name {
+    color: $g-color-primary;
+    text-decoration: none;
+    font-size: 22px;
+    display: inline-block;
+    font-weight: $g-weight-bold;
+
+    &--admin {
+      color: #54bd61;
+    }
+  }
+
+  &__description {
+    color: $color;
+    display: inline-block;
+    margin: 10px 0;
+  }
+}

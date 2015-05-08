@@ -1,0 +1,18 @@
+// # Quick notice about web progress.
+.info {
+  @import '../base/global';
+
+  //
+  // Notice Variables
+  //
+
+  $color: $g-color-text;
+
+  //
+  // Notice Styles
+  //
+
+  margin: 20px 0;
+  color: $color;
+  font-size: 16px;
+}
