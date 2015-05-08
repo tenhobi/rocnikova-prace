@@ -39,6 +39,10 @@ class ArticleManager
 
     public function saveArticle($id, $article)
     {
+        if (strlen($article['url']) < 3) {
+            throw new UserError('URL musí obsahovat více než 3 znaky!');
+        }
+
         if (!$id)
         {
             try

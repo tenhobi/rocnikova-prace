@@ -23,4 +23,15 @@
   &--warning {
     color: $g-color-warning;
   }
+
+  &__link {
+    text-decoration: none;
+    color: $g-color-primary;
+    font-size: 16px;
+    margin: 0 5px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
