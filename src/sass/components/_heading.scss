@@ -17,4 +17,9 @@
   margin: 40px 0 20px 0;
   font-weight: $g-weight-regular;
   text-transform: uppercase;
+
+  &__no-style {
+    text-decoration: none;
+    text-transform: none;
+  }
 }

@@ -13,28 +13,58 @@
   // Article Styles
   //
 
-  padding: 20px;
-  display: inline-block;
-  background: darken($g-color-white, 5%);
-  margin: 15px 1%;
+  display: block;
   box-sizing: border-box;
   font-size: 14px;
+  text-align: center;
+  color: $color;
+
+  &--in-list {
+    background: darken($g-color-white, 5%);
+    display: inline-block;
+    margin: 15px 1%;
+    padding: 20px;
+  }
 
   &__name {
     color: $g-color-primary;
     text-decoration: none;
     font-size: 22px;
-    display: inline-block;
+    display: block;
     font-weight: $g-weight-bold;
 
     &--admin {
-      color: #54bd61;
+      color: $g-color-info;
     }
   }
 
   &__description {
-    color: $color;
-    display: inline-block;
-    margin: 10px 0;
+    width: 70%;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  &__motto {
+    width: 50%;
+    text-align: center;
+    margin: 20px auto;
+
+    &::before {
+      content: "'";
+    }
+
+    &::after {
+      content: "'";
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $g-color-primary;
+    font-size: 16px;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

@@ -15,4 +15,12 @@
   margin: 20px 0;
   color: $color;
   font-size: 16px;
+
+  &--special {
+    color: $g-color-info;
+  }
+
+  &--warning {
+    color: $g-color-warning;
+  }
 }

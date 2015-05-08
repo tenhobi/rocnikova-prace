@@ -31,6 +31,8 @@ class EditorController extends Controller
         if ($_POST)
         {
             try {
+                if (!isset($_POST['author_id']))
+                    $_POST['author_id'] = $user['users_id'];
                 $_POST['url'] = $safe = preg_replace('/^-+|-+$/', '', preg_replace('/[^a-z0-9-]/u', '-', mb_strtolower($_POST['url'])));
                 $keys = array('author_id', 'title', 'content', 'url', 'description');
                 $article = array_intersect_key($_POST, array_flip($keys));

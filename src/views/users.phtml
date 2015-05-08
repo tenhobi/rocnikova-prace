@@ -1,13 +1,14 @@
+<h1 class="heading">Výpis uživatelů</h1>
 <ul class="list">
     <?php foreach ($users as $user) : ?>
         <?php $adminClass = ($user['admin']) ? 'user__name--admin' : ''; ?>
-        <li class="user">
+        <li class="user user--in-list">
             <a class="user__name <?= $adminClass ?>" href="<?= Url::getAlias('user') ?>/<?= $user['url'] ?>"><?= $user['nickname'] ?></a>
             <?php if($admin && !$user['admin']): ?>
-                <a class="option" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>/<?= $user['nickname'] ?>/<?= Url::getCommand('add-to-admin')?>">Udělit administrátorská práva.</a>
+                <a class="option" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>/<?= $user['nickname'] ?>/<?= Url::getCommand('add-to-admin')?>">Udělit admin práva.</a>
             <?php endif ?>
             <?php if($admin && $user['admin']): ?>
-                <a class="option" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>/<?= $user['nickname'] ?>/<?= Url::getCommand('remove-from-admin')?>">Odebrat administrátorská práva.</a>
+                <a class="option" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>/<?= $user['nickname'] ?>/<?= Url::getCommand('remove-from-admin')?>">Odebrat admin práva.</a>
             <?php endif ?>
         </li>
     <?php endforeach ?>

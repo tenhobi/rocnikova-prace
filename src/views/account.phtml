@@ -1,4 +1,4 @@
-<h1>Nastavení účtu <?= $user['nickname'] ?></h1>
+<h1 xmlns="http://www.w3.org/1999/html">Nastavení účtu <?= $user['nickname'] ?></h1>
 
 <form method="post">
 
@@ -6,7 +6,7 @@
     <input type="text" value="<?= $user['nickname'] ?>" name="nickname"/><br/>
 
     Popisek: <br>
-    <input type="text" value="<?= $user['description'] ?>" maxlength="500" name="description"/><br/>
+    <textarea name="description"><?= $user['description'] ?></textarea><br/>
 
     Motto: <br>
     <input type="text" value="<?= $user['motto'] ?>" maxlength="140" name="motto"/><br/>
@@ -16,15 +16,15 @@
     <input type="text" value="<?= $user['website'] ?>" name="website"/>
 
     <br/>
-    Facebook:
+    Facebook nick:
     <input type="text" value="<?= $user['facebook'] ?>" name="facebook"/>
 
     <br/>
-    Twitter:
+    Twitter nick:
     <input type="text" value="<?= $user['twitter'] ?>" name="twitter"/>
 
     <br/>
-    Google+:
+    Google+ nick:
     <input type="text" value="<?= $user['googleplus'] ?>" name="googleplus"/>
 
     <input type="submit" value="Uložit informace" />
