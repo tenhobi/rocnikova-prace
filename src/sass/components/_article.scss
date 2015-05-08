@@ -52,4 +52,23 @@
     color: $color;
     margin: 10px 0 20px;
   }
+
+  &__content {
+
+    a {
+      text-decoration: none;
+      color: $g-color-primary;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    p {
+      margin: 10px 0;
+      font-size: 18px;
+      color: $g-color-text;
+      line-height: 1.3em;
+    }
+  }
 }

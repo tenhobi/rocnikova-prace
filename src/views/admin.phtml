@@ -1,20 +1,20 @@
 <?php if ($access) : ?>
-    <p>Vítejte v administraci, jste přihlášeni jako <?= $nickname ?></p>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('account') ?>">Účet</a></li>
+            <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('articles') ?>">Seznam článků</a></li>
+            <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('editor') ?>">Editor článků</a></li>
+            <?php if ($admin) : ?>
+                <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>">Správa uživatelů</a></li>
+            <?php endif ?>
+            <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('user')?>/<?= $userUrl ?>">Můj profil</a></li>
+            <li class="nav__item"><a class="nav__link" href="<?= Url::getAlias('admin') ?>/<?= Url::getCommand('logout') ?>">Odhlásit se</a></li>
+        </ul>
+    </nav>
 <?php endif ?>
 
 <?php if ($access && !$admin) : ?>
-    <p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
-<?php endif ?>
-
-<?php if ($access) : ?>
-    <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('account') ?>">Účet</a></h2>
-    <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('articles') ?>">Seznam článků</a></h2>
-    <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('editor') ?>">Editor článků</a></h2>
-    <?php if ($admin) : ?>
-        <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getAlias('users') ?>">Správa uživatelů</a></h2>
-    <?php endif ?>
-    <h2><a href="<?= Url::getAlias('admin') ?>/<?= Url::getCommand('logout') ?>">Odhlásit se</a></h2>
-    <h3><a href="<?= Url::getAlias('user')?>/<?= $userUrl ?>">Můj profil</a></h3>
+    <p class="info">Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
 <?php endif ?>
 
 <?php $this->subController->printView(); ?>

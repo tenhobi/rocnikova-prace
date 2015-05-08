@@ -38,8 +38,7 @@ class ArticleController extends Controller
                 'description' => $article['description']
             );
 
-            $this->data['title'] = $article['title'];
-            $this->data['content'] = $article['content'];
+            $this->data['article'] = $article;
 
             $this->view = 'article';
         }

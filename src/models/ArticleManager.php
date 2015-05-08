@@ -6,9 +6,11 @@ class ArticleManager
     public function getArticle($url)
     {
         return Db::queryOne('
-            SELECT `articles_id`, `author_id`, `title`, `content`, `url`, `description`, `keywords`
-            FROM `articles`
-            WHERE `url` = ?
+            SELECT a.`articles_id`, a.`author_id`, a.`title`, a.`content`, a.`url`, a.`description`, a.`keywords`, `u`.`nickname`, u.`url` as user_url, u.`users_id`
+            FROM `articles` as a
+            LEFT JOIN `users` as u
+            ON a.`author_id` = u.`users_id`
+            WHERE a.`url` = ?
         ', array($url));
     }
 
