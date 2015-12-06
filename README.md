@@ -5,9 +5,3 @@ Práce, kterou jsem vypracovával jako součást ročníkové práce ve 3. ročn
 ## Obhajoba
 
 Prezentace z obhajoby [zde](http://slides.com/hobi/vyvoj-webove-aplikace).
-
-## Licence
-
-Copyright (c) 2014-2015, Honza Bittner <the@honzabittner.cz>
-
-http://honzabittner.cz
