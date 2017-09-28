@@ -8,4 +8,4 @@ Cíl práce bylo vytvoření blogovacího systému s možností uživatelských 
 
 ## Obhajoba
 
-Prezentace obhajoby práce je k nalezení [zde](http://slides.com/hobi/vyvoj-webove-aplikace).
+Prezentace obhajoby práce je k nalezení [zde](http://slides.com/tenhobi/vyvoj-webove-aplikace).
